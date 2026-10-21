@@ -1,1 +1,100 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+    --color-primary-dark: #17563F;
+    --color-primary-light: #E3F1E9;
+    --color-blue-dark: #2E5CA8;
+    --color-blue-light: #E4EEFB;
+    --color-purple-dark: #664F9E;
+    --color-purple-light: #EDE8F7;
+    --color-warning-dark: #A16617;
+    --color-warning-light: #FBF2DD;
+    --color-danger-dark: #B03636;
+    --color-danger-light: #FDE9E9;
+    --color-text-main: #1A272E;
+    --color-text-muted: #64757D;
+    --color-bg-app: #F6F8FA;
+    --color-border-app: #DDE4E7;
+    --color-white: #FFFFFF;
+
+    --font-size-base: 16px;
+    --font-size-sm: 0.875rem; // 14px
+    --font-size-md: 1rem; // 16px (base)
+    --font-size-lg: 1.125rem; // 18px
+    --font-size-xl: 1.25rem; // 20px
+    --font-size-2xl: 1.5rem; // 24px
+    --font-size-3xl: 1.75rem; // 28px
+    --font-size-4xl: 2rem; // 32px
+    --font-size-5xl: 2.25rem; // 36px
+    --font-size-6xl: 2.5rem; // 40px
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-full: 9999px;
+
+    --space-base: 15px;
+    --space-sm: 5px;
+    --space-md: 15px;
+    --space-lg: 20px;
+    --space-xl: 25px;
+    --space-2xl: 30px;
+    --space-3xl: 40px;
+
+    --sidebar-width: 260px;
+    --sidebar-width-collapsed: 80px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--color-bg-app);
+    color: var(--color-text-main);
+    font-size: var(--font-size-md);
+}
+
+section {
+    margin-left: var(--sidebar-width);
+    width: calc(100dvw - var(--sidebar-width));
+    padding: var(--space-3xl);
+}
+
+h2 {
+    font-size: var(--font-size-4xl);
+}
+
+h3 {
+    font-size: var(--font-size-3xl);
+}
+
+p {
+    font-size: var(--font-size-base);
+}
+
+span {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+.icon {
+    width: var(--font-size-sm);
+    height: var(--font-size-sm);
+    fill: var(--color-text-muted);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+    cursor: default;
+}

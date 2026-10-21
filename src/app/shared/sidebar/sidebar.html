@@ -1,0 +1,27 @@
+<aside class="sidebar">
+    <div class="sidebar-header">
+        <div class="logo-avatar">G</div>
+        <span class="brand-name">Gracy Gestão</span>
+    </div>
+
+    <nav class="sidebar-nav">
+        <span class="nav-section-title">Gestão de Estudantes</span>
+
+        <ul>
+            @for (navItem of navItems; track $index) {
+            <li class="nav-item" routerLinkActive="active" routerLink="{{ navItem.path }}">
+                <i class="icon {{navItem.icon}}"></i>
+                <span>{{navItem.label}}</span>
+            </li>
+            }
+        </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+        <div class="user-avatar">AS</div>
+        <div class="user-info">
+            <span class="user-name">Arthur Sena</span>
+            <span class="user-role">Administrador</span>
+        </div>
+    </div>
+</aside>
