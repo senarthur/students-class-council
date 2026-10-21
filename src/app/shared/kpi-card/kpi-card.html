@@ -1,0 +1,12 @@
+<app-base-card>
+    <div class="kpi-card">
+        <div class="kpi-header">
+            <div [class]="'kpi-icon ' + data().variant">
+                <i class="{{ data().icon }}"></i>
+            </div>
+            <span class="kpi-label">{{ data().label }}</span>
+        </div>
+        <span class="kpi-value">{{ data().value }}</span>
+        <span class="kpi-subtext" [class]="'highlight-' + data().variant">{{ data().subtext }}</span>
+    </div>
+</app-base-card>
