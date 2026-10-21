@@ -4,7 +4,7 @@ import { Sidebar } from '../../shared/sidebar/sidebar';
 @Component({
   selector: 'app-overview',
   imports: [
-    Sidebar
+    Sidebar,
   ],
   templateUrl: './overview.html',
   styleUrl: './overview.scss',
