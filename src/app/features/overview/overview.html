@@ -1,5 +1,238 @@
 <app-sidebar></app-sidebar>
 
 <section>
-    <p>Overview works</p>
+    <!------------------------ HEADER ------------------------>
+    <header class="content-header">
+        <div>
+            <h1>Bom dia, Coordenação!</h1>
+            <p>Acompanhe os principais indicadores e acesse rapidamente as rotinas da escola.</p>
+        </div>
+        <div class="select-period">
+            <select name="period" id="period">
+                <option value="" selected>Ano letivo 2026 - 2° trimestre</option>
+            </select>
+        </div>
+    </header>
+
+    <!--------------- RESUMO DA ESCOLA - KPI CARDS --------------->
+    <div class="resume">
+        <h2>Resumo da escola</h2>
+        <div class="kpi-cards">
+            @for (kpiCard of kpiCards(); track $index) {
+            <app-kpi-card [data]="kpiCard"></app-kpi-card>
+            }
+        </div>
+    </div>
+
+    <!--------------- ACESSO RÁPIDO --------------->
+    <app-base-card class="quick-access-section" padding="16px">
+        <h2 class="quick-access-title">Acesso rápido</h2>
+        <p class="quick-access-subtitle">Vá direto às tarefas mais usadas no dia a dia.</p>
+
+        <div class="quick-access-grid">
+            <app-base-card variant="dark" padding="0">
+                <button class="quick-btn">
+                    <div class="icon primary">
+                        <i class="fa fa-solid fa-plus"></i>
+                    </div>
+                    <div class="btn-text">
+                        <strong>Cadastrar aluno</strong>
+                        <small>Adicionar novo estudante</small>
+                    </div>
+                </button>
+            </app-base-card>
+
+            <app-base-card variant="dark" padding="0">
+                <button class="quick-btn">
+                    <div class="icon blue"><i class="fa-solid fa-building-columns"></i></div>
+                    <div class="btn-text">
+                        <strong>Conselho de classe</strong>
+                        <small>Continuar avaliações</small>
+                    </div>
+                </button>
+            </app-base-card>
+
+            <app-base-card variant="dark" padding="0">
+                <button class="quick-btn">
+                    <div class="icon warning">
+                        <i class="fa-regular fa-newspaper"></i>
+                    </div>
+                    <div class="btn-text">
+                        <strong>Registrar ocorrências</strong>
+                        <small>Documentar acompanhamento</small>
+                    </div>
+                </button>
+            </app-base-card>
+
+            <app-base-card variant="dark" padding="0">
+                <button class="quick-btn">
+                    <div class="icon purple">
+                        <i class="fa-solid fa-user-plus"></i>
+                    </div>
+                    <div class="btn-text">
+                        <strong>Consultar alunos</strong>
+                        <small>Buscar e editar cadastros</small>
+                    </div>
+                </button>
+            </app-base-card>
+        </div>
+    </app-base-card>
+
+    <!--------------- PROGRESSO --------------->
+    <div class="two-columns-grid">
+        <app-base-card padding="16px">
+            <div class="card-panel">
+                <div class="card-panel-header">
+                    <h3>Progresso do Conselho de Classe</h3>
+                    <p>Acompanhamento das avaliações por turma</p>
+                </div>
+                <span class="badge">2° trimestre - 2026</span>
+            </div>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>TURMA</th>
+                        <th>ANDAMENTO</th>
+                        <th>STATUS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>5°A</strong></td>
+                        <td>
+                            18 de 28
+                            <div class="progress-bar">
+                                <div class="fill blue" style="width: 78%"></div>
+                            </div>
+                        </td>
+                        <td><span class="status-badge blue">Em andamento</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>5°B</strong></td>
+                        <td>
+                            0 de 28
+                            <div class="progress-bar">
+                                <div class="fill warning" style="width: 0%"></div>
+                            </div>
+                        </td>
+                        <td><span class="status-badge blue">Pendente</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>5°C</strong></td>
+                        <td>
+                            28 de 28
+                            <div class="progress-bar">
+                                <div class="fill primary" style="width: 100%"></div>
+                            </div>
+                        </td>
+                        <td><span class="status-badge blue">Concluído</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </app-base-card>
+
+
+        <!--------------- PENDÊNCIAS --------------->
+        <app-base-card padding="16px">
+            <div class="card-panel">
+                <div class="card-panel-header">
+                    <h3>Pendências e atenção</h3>
+                    <p>Itens que podem precisar de acompanhamento</p>
+                </div>
+            </div>
+
+            <div class="pending-list">
+                <div class="pending-item">
+                    <div class="icon warning">
+                        <i class="fa fa-solid fa-exclamation"></i>
+                    </div>
+                    <div class="pending-info">
+                        <strong>Avaliações ainda não finalizadas</strong>
+                        <p>7 professores ainda têm itens pendentes</p>
+                    </div>
+                    <button class="link-action">
+                        <span>Acessar</span>
+                        <i class="fa fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="pending-item">
+                    <div class="icon blue">
+                        <i class="fa fa-solid fa-newspaper"></i>
+                    </div>
+                    <div class="pending-info">
+                        <strong>Registros recentes</strong>
+                        <p>24 ocorrências no trimestre atual.</p>
+                    </div>
+                    <button class="link-action">
+                        <span>Acessar</span>
+                        <i class="fa fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="pending-item">
+                    <div class="icon primary">
+                        <i class="fa fa-solid fa-user-plus"></i>
+                    </div>
+                    <div class="pending-info">
+                        <strong>Cadastros de estudantes</strong>
+                        <p>Confira dados incompletos ou desatualizados.</p>
+                    </div>
+                    <button class="link-action">
+                        <span>Acessar</span>
+                        <i class="fa fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </app-base-card>
+    </div>
+
+
+    <!--------------- ATIVIDADES RECENTES --------------->
+    <app-base-card>
+        <h3>Atividades recentes</h3>
+        <p class="panel-subtitle">Últimas atividades recentes</p>
+
+        <div class="recent-activities-grid">
+            <app-base-card variant="dark">
+                <div class="activity-card">
+                    <div class="icon warning">
+                        <i class="fa fa-solid fa-exclamation"></i>
+                    </div>
+                    <div class="activity-info">
+                        <span class="time">13:45</span>
+                        <strong>Ocorrência registrada</strong>
+                        <p>Registro associado a estudante</p>
+                    </div>
+                </div>
+            </app-base-card>
+
+            <app-base-card variant="dark">
+                <div class="activity-card">
+                    <div class="icon primary">
+                        <i class="fa fa-solid fa-check"></i>
+                    </div>
+                    <div class="activity-info">
+                        <span class="time">14:20</span>
+                        <strong>Conselho de classe</strong>
+                        <p>Avaliação de Português · 5º A</p>
+                    </div>
+                </div>
+            </app-base-card>
+
+            <app-base-card variant="dark">
+                <div class="activity-card">
+                    <div class="icon blue">
+                        <i class="fa fa-solid fa-refresh"></i>
+                    </div>
+                    <div class="activity-info">
+                        <span class="time">11:10</span>
+                        <strong>Cadastro atualizado</strong>
+                        <p>Dados de estudante revisados</p>
+                    </div>
+                </div>
+            </app-base-card>
+        </div>
+    </app-base-card>
 </section>

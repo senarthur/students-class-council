@@ -10,6 +10,6 @@ type variant = 'light' | 'dark';
 })
 
 export class BaseCard {
-  padding = input<string>('15px');
+  padding = input<string>('16px');
   variant = input<variant>('light');
 }

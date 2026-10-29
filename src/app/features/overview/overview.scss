@@ -1,4 +1,291 @@
+section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+}
+
+.icon {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border-radius: var(--radius-md);
+
+    &.primary {
+        background-color: var(--color-primary-light);
+        color: var(--color-primary-dark);
+    }
+
+    &.blue {
+        background-color: var(--color-blue-light);
+        color: var(--color-blue-dark);
+    }
+
+    &.purple {
+        background-color: var(--color-purple-light);
+        color: var(--color-purple-dark);
+    }
+
+    &.warning {
+        background-color: var(--color-warning-light);
+        color: var(--color-warning-dark);
+    }
+
+    &.danger {
+        background-color: var(--color-danger-light);
+        color: var(--color-danger-dark);
+    }
+}
+
+h2,
+h3 {
+    font-size: var(--font-size-md);
+}
+
+/* -------------- HEADER -------------- */
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--color-border-app);
+
+    h1 {
+        margin-bottom: var(--space-sm);
+    }
+
+    .select-period select {
+        padding: var(--space-sm);
+        border-radius: var(--radius-md);
+        border: 1px solid var(--color-border-app);
+        color: var(--color-text-main);
+        outline: none;
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* -------------- KPI CARDS -------------- */
+.resume h2 {
+    margin-bottom: var(--space-md);
+}
+
 .kpi-cards {
     display: flex;
-    gap: 2rem;
+    flex-wrap: wrap;
+    gap: var(--space-2xl);
+}
+
+/* -------------- ACESSO RÁPIDO -------------- */
+.quick-access-section {
+
+    .quick-access-title {
+        margin-bottom: var(--space-sm);
+    }
+
+    .quick-access-subtitle {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--space-md);
+    }
+
+    .quick-access-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-md);
+
+        .quick-btn {
+            width: 100%;
+            padding: var(--space-md);
+            cursor: pointer;
+            display: flex;
+            align-items: flex;
+            gap: var(--space-md);
+            transition: transform 0.1s ease;
+            border: none;
+            background-color: transparent;
+
+            &:hover {
+                background-color: var(--color-white);
+                transform: scale(1.07);
+            }
+
+            .icon i {
+                font-size: var(--font-size-md);
+            }
+
+            .btn-text {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+
+                strong {
+                    color: var(--color-text-main);
+                    font-size: var(--font-size-sm);
+                    margin-bottom: 2px;
+                    text-align: start;
+                }
+
+                small {
+                    color: var(--color-text-muted);
+                    text-align: start;
+                }
+            }
+        }
+    }
+}
+
+/* -------------- PROGRESSO -------------- */
+.two-columns-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-auto-rows: minmax(min-content, max-content);
+    gap: var(--space-lg);
+}
+
+h3 {
+    margin-bottom: 4px;
+}
+
+p {
+    font-size: var(--font-size-xs);
+}
+
+.card-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-xl);
+
+    .badge {
+        display: inline-block;
+        color: var(--color-primary-dark);
+        font-weight: 600;
+    }
+}
+
+.data-table {
+    width: 100%;
+    font-size: var(--font-size-sm);
+    border-collapse: collapse;
+
+    thead th {
+        background-color: var(--color-bg-app);
+        text-align: left;
+        padding: var(--space-sm);
+        color: var(--color-text-muted);
+    }
+
+    tbody td {
+        padding: var(--space-md) var(--space-sm);
+
+        .progress-bar {
+            width: 60%;
+            height: 6px;
+            background: var(--color-bg-app);
+            border-radius: 3px;
+            display: inline-block;
+            margin-left: 8px;
+            overflow: hidden;
+
+            .fill {
+                height: 100%;
+                border-radius: 3px;
+
+                &.blue {
+                    background: var(--color-blue-dark);
+                }
+
+                &.primary {
+                    background: var(--color-primary-dark);
+                }
+
+                &.warning {
+                    background: var(--color-warning-dark);
+                }
+            }
+        }
+    }
+}
+
+/* -------------- PENDÊNCIAS -------------- */
+.pending-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xl);
+
+    .pending-item {
+        display: flex;
+        align-items: flex-end;
+        gap: var(--space-md);
+    }
+
+    .pending-info {
+        flex: 1;
+
+        strong {
+            font-size: var(--font-size-sm);
+            display: block;
+            margin-bottom: 4px;
+        }
+    }
+
+    .link-action {
+        cursor: pointer;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        min-width: 100px;
+        padding: var(--space-sm);
+
+        span {
+            color: var(--color-primary-dark);
+            display: inline-block;
+            margin-right: var(--space-sm);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        i {
+            color: var(--color-primary-dark);
+            transition: all 0.2s ease;
+        }
+
+        &:hover {
+            span {
+                font-weight: 700;
+            }
+
+            i {
+                transform: translateX(5px);
+            }
+        }
+    }
+}
+
+/* -------------- ATIVIDADES RECENTES -------------- */
+.recent-activities-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+
+    .activity-card {
+        display: flex;
+    }
+
+    .activity-info {
+        margin-left: var(--space-md);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: var(--space-sm);
+
+        strong {
+            font-size: var(--font-size-sm);
+        }
+
+        span,
+        p {
+            font-size: var(--font-size-xs);
+        }
+    }
 }
