@@ -1,0 +1,69 @@
+<app-sidebar></app-sidebar>
+
+<section>
+    <header>
+        <h1>Cadastrar aluno</h1>
+        <p>Adicione um estudante ao cadastro da escola.</p>
+    </header>
+
+    <div class="action-bar">
+        <app-button variant="white" routerLink="/estudantes">
+            <i class="fa fa-solid- fa-arrow-left"></i>
+            Voltar para alunos
+        </app-button>
+    </div>
+
+    <app-base-card>
+        <form class="form-container">
+
+            <!-- 1. Identificação -->
+            <fieldset class="form-section">
+                <legend class="section-title">1. Identificação</legend>
+                <p class="section-description">Preencha os dados básicos para identificar o estudante.</p>
+            </fieldset>
+
+            <div class="identification-grid">
+                <label class="photo-upload-box">
+                    <span class="upload-icon">+</span>
+                    <span>Adicionar foto</span>
+                    <input type="file" name="image-upload" id="image-upload" accept="image/*">
+                </label>
+                <app-input label="Nome completo" placeholder="Nome completo do estudante" required="true" />
+                <app-input label="Data de nascimento" placeholder="DD/MM/AAAA" />
+            </div>
+
+            <hr class="fieldset-divider">
+
+            <!-- 2. Informações Escolares -->
+            <fieldset class="form-section">
+                <legend class="section-title">2. Informações Escolares</legend>
+            </fieldset>
+
+            <div class="school-grid">
+                <app-select name="turma" placeholder="Selecione uma turma" label="Turma" required="true"
+                    [options]="classes()"></app-select>
+                <app-select name="turno" placeholder="Selecione o turno" label="Turno" required="true"
+                    [options]="shift()"></app-select>
+                <app-select name="situacao" placeholder="Situação" label="Situação" required="true"
+                    [options]="status()"></app-select>
+            </div>
+
+            <hr class="fieldset-divider">
+
+            <!-- 3. Informações de acompanhamento -->
+            <fieldset class="form-section">
+                <legend class="section-title">3. Informações de acompanhamento</legend>
+            </fieldset>
+
+            <div class="additional-info">
+                <app-toggle-group label="Participa do PEI"></app-toggle-group>
+                <app-toggle-group label="Há transtorno ou condição relevante para o acompanhamento?"></app-toggle-group>
+            </div>
+
+            <div class="action-buttons">
+                <app-button variant="outline">Cancelar</app-button>
+                <app-button>Cadastrar aluno</app-button>
+            </div>
+        </form>
+    </app-base-card>
+</section>

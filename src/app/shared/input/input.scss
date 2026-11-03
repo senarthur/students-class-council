@@ -1,0 +1,42 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .form-field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        label {
+            font-size: var(--font-size-xs);
+            color: var(--color-text-muted);
+        }
+
+        input {
+            height: 42px;
+            padding: 0 12px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border-app);
+            background-color: var(--color-white);
+            font-size: var(--font-size-sm);
+            color: var(--color-text-main);
+            outline: none;
+            transition: border-color 0.2s ease;
+
+            &:focus {
+                border-color: var(--color-text-main);
+            }
+
+            &::placeholder {
+                color: var(--color-text-muted);
+                opacity: 0.8;
+            }
+
+            &:disabled {
+                background-color: var(--color-bg-app);
+                cursor: not-allowed;
+            }
+        }
+    }
+}

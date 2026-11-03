@@ -1,0 +1,12 @@
+<div class="toggle-group-container">
+    @if (label()) {
+    <label>{{ label() }}</label>
+    }
+    <div class="toggle-buttons">
+        @for (opt of options(); track opt.label) {
+        <button type="button" class="toggle-btn" [class.active]="value() === opt.value" (click)="onSelect(opt.value)">
+            {{ opt.label }}
+        </button>
+        }
+    </div>
+</div>
