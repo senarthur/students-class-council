@@ -1,20 +1,7 @@
 /* ------------------------ HEADER ------------------------ */
-.content-header {
+.action-buttons {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding-bottom: var(--space-lg);
-    border-bottom: 1px solid var(--color-border-app);
-    margin-bottom: var(--space-md);
-
-    h1 {
-        margin-bottom: var(--space-sm);
-    }
-
-    .action-buttons {
-        display: flex;
-        gap: var(--space-lg);
-    }
+    gap: var(--space-lg);
 }
 
 /* ------------------------ KPI CARDS ------------------------ */

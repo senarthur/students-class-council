@@ -5,11 +5,13 @@ import { IKpiCard } from '../../shared/kpi-card/ikpi-card';
 import { BaseCard } from '../../shared/base-card/base-card';
 import { KpiCard } from '../../shared/kpi-card/kpi-card';
 import { RouterLink } from '@angular/router';
+import { Header } from '../../shared/header/header';
 
 @Component({
   selector: 'app-students',
   imports: [
     Sidebar,
+    Header,
     Button,
     BaseCard,
     KpiCard,

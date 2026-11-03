@@ -7,11 +7,13 @@ import { Select } from '../../../shared/select/select';
 import { SelectOption } from '../../../shared/select/select-option.model';
 import { ToggleGroup } from '../../../shared/toggle-group/toggle-group';
 import { RouterLink } from '@angular/router';
+import { Header } from '../../../shared/header/header';
 
 @Component({
   selector: 'app-student-create',
   imports: [
     Sidebar,
+    Header,
     Button,
     BaseCard,
     Input,

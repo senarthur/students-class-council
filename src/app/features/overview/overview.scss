@@ -37,25 +37,13 @@ h3 {
 }
 
 /* -------------- HEADER -------------- */
-.content-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding-bottom: var(--space-lg);
-    border-bottom: 1px solid var(--color-border-app);
-
-    h1 {
-        margin-bottom: var(--space-sm);
-    }
-
-    .select-period select {
-        padding: var(--space-sm);
-        border-radius: var(--radius-md);
-        border: 1px solid var(--color-border-app);
-        color: var(--color-text-main);
-        outline: none;
-        font-size: var(--font-size-sm);
-    }
+.select-period select {
+    padding: var(--space-sm);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border-app);
+    color: var(--color-text-main);
+    outline: none;
+    font-size: var(--font-size-sm);
 }
 
 /* -------------- KPI CARDS -------------- */

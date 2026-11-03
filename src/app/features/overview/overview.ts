@@ -3,11 +3,13 @@ import { Sidebar } from '../../shared/sidebar/sidebar';
 import { IKpiCard } from '../../shared/kpi-card/ikpi-card';
 import { KpiCard } from '../../shared/kpi-card/kpi-card';
 import { BaseCard } from '../../shared/base-card/base-card';
+import { Header } from '../../shared/header/header';
 
 @Component({
   selector: 'app-overview',
   imports: [
     Sidebar,
+    Header,
     KpiCard,
     BaseCard
   ],

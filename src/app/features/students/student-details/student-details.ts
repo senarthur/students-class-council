@@ -3,11 +3,13 @@ import { Sidebar } from '../../../shared/sidebar/sidebar';
 import { BaseCard } from '../../../shared/base-card/base-card';
 import { Button } from '../../../shared/button/button';
 import { RouterLink } from '@angular/router';
+import { Header } from '../../../shared/header/header';
 
 @Component({
   selector: 'app-student-details',
   imports: [
     Sidebar,
+    Header,
     BaseCard,
     Button,
     RouterLink
