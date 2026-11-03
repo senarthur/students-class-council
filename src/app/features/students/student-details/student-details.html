@@ -1,0 +1,89 @@
+<app-sidebar></app-sidebar>
+
+<section>
+    <header>
+        <h1>Detalhes do aluno</h1>
+        <p>Consulte os dados essenciais e acesse os acompanhamentos do estudante.</p>
+    </header>
+
+    <div class="action-bar">
+        <app-button variant="white" routerLink="/estudantes">
+            <i class="fa fa-solid fa-arrow-left"></i>
+            Voltar para alunos
+        </app-button>
+        <app-button>
+            Editar Aluno
+        </app-button>
+    </div>
+
+    <!---------------- BARRA DO PERFIL ------------------>
+    <app-base-card padding="28px" class="profile-card">
+        <div class="profile-content">
+            <div class="avatar">{{ student().initials }}</div>
+            <div class="profile-info">
+                <h2>{{ student().name }}</h2>
+                <span class="birthdate">Data de nascimento: {{ student().registration }}</span>
+
+                <div class="badges-row">
+                    <span class="badge badge-grade">{{ student().grade }}</span>
+                    <span class="badge badge-shift">{{ student().shift }}</span>
+                </div>
+            </div>
+        </div>
+    </app-base-card>
+
+    <!-- Seções em Duas Colunas -->
+    <div class="detail-grid">
+        <!-- Coluna 1: Dados Cadastrais -->
+        <app-base-card padding="24px" class="data-card">
+            <h3>Dados cadastrais</h3>
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="label">Turma</span>
+                    <strong class="value">{{ student().grade }}</strong>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">Turno</span>
+                    <strong class="value">{{ student().shift }}</strong>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">Participa do PEI</span>
+                    <strong class="value">{{ student().hasPei ? 'Sim' : 'Não' }}</strong>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">Transtorno informado</span>
+                    <strong class="value">{{ student().disorderInfo }}</strong>
+                </div>
+            </div>
+        </app-base-card>
+
+        <!-- Coluna 2: Acompanhamento do Estudante -->
+        <app-base-card padding="24px" class="tracking-card">
+            <div class="section-header">
+                <h3>Acompanhamento do estudante</h3>
+                <p>Acesse cada área sem duplicar informações no cadastro.</p>
+            </div>
+
+            <div class="tracking-list">
+                @for (item of trackingList(); track item.id) {
+                <div class="tracking-item">
+                    <div class="icon-box" [class]="'variant-' + item.colorVariant">
+                        <i [class]="item.icon"></i>
+                    </div>
+
+                    <div class="item-info">
+                        <strong>{{ item.title }}</strong>
+                        <p>{{ item.description }}</p>
+                    </div>
+
+                    <span class="arrow">›</span>
+                </div>
+                }
+            </div>
+        </app-base-card>
+    </div>
+</section>

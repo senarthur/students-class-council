@@ -4,6 +4,7 @@ import { Button } from '../../shared/button/button';
 import { IKpiCard } from '../../shared/kpi-card/ikpi-card';
 import { BaseCard } from '../../shared/base-card/base-card';
 import { KpiCard } from '../../shared/kpi-card/kpi-card';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-students',
@@ -11,7 +12,8 @@ import { KpiCard } from '../../shared/kpi-card/kpi-card';
     Sidebar,
     Button,
     BaseCard,
-    KpiCard
+    KpiCard,
+    RouterLink
   ],
   templateUrl: './students.html',
   styleUrl: './students.scss',

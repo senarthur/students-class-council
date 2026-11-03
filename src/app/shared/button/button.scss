@@ -52,4 +52,14 @@
             background-color: var(--color-bg-app);
         }
     }
+
+    &.btn-white .custom-btn {
+        background-color: var(--color-white);
+        color: var(--color-text-main);
+        border: 1px solid var(--color-border-app);
+
+        &:hover:not(:disabled) {
+            background-color: var(--color-bg-app);
+        }
+    }
 }

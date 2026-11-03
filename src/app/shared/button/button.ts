@@ -1,4 +1,4 @@
-import { Component, EventEmitter, input, output } from '@angular/core';
+import { booleanAttribute, Component, EventEmitter, input, output } from '@angular/core';
 import { ButtonSize, ButtonVariant } from './button.model';
 
 @Component({
@@ -15,7 +15,9 @@ export class Button {
 
   variant = input<ButtonVariant>("primary");
   size = input<ButtonSize>("md");
-  disabled = input<boolean>(false);
+  disabled = input<boolean>(false, {
+    transform: booleanAttribute
+  });
 
   btnClick = output<Event>();
 

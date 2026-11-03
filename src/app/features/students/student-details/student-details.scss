@@ -1,0 +1,213 @@
+header {
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--color-border-app);
+    margin-bottom: var(--space-md);
+
+    h1 {
+        margin-bottom: var(--space-sm);
+    }
+}
+
+.action-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+}
+
+.profile-card {
+    margin-bottom: var(--space-lg);
+
+    .profile-content {
+        display: flex;
+        align-items: center;
+        gap: var(--space-xl);
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-full);
+            background-color: var(--color-primary-light);
+            color: var(--color-primary-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+
+            h2 {
+                font-size: var(--font-size-2xl);
+                color: var(--color-text-main);
+                margin-bottom: 2px;
+            }
+
+            .birthdate {
+                font-size: var(--font-size-sm);
+                color: var(--color-text-muted);
+                margin-bottom: var(--space-md);
+            }
+
+            .badges-row {
+                display: flex;
+                gap: var(--space-sm);
+
+                .badge {
+                    padding: 4px 12px;
+                    border-radius: var(--radius-full);
+                    font-size: var(--font-size-xs);
+                    font-weight: 600;
+
+                    &.badge-grade {
+                        background-color: var(--color-primary-light);
+                        color: var(--color-primary-dark);
+                    }
+
+                    &.badge-shift {
+                        background-color: var(--color-bg-app);
+                        color: var(--color-text-muted);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Layout de Duas Colunas */
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+
+    @media (max-width: 992px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Card Dados Cadastrais */
+.data-card {
+    height: fit-content;
+
+    h3 {
+        font-size: var(--font-size-lg);
+        color: var(--color-text-main);
+        padding-bottom: var(--space-md);
+        border-bottom: 1px solid var(--color-bg-app);
+        margin-bottom: var(--space-lg);
+    }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-xl) var(--space-lg);
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            .label {
+                font-size: var(--font-size-xs);
+                color: var(--color-text-muted);
+            }
+
+            .value {
+                font-size: var(--font-size-sm);
+                color: var(--color-text-main);
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+/* Card Acompanhamento */
+.tracking-card {
+    .section-header {
+        margin-bottom: var(--space-lg);
+
+        h3 {
+            font-size: var(--font-size-lg);
+            color: var(--color-text-main);
+            margin-bottom: 2px;
+        }
+
+        p {
+            font-size: var(--font-size-xs);
+            color: var(--color-text-muted);
+        }
+    }
+
+    .tracking-list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+
+        .tracking-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: 14px 16px;
+            border: 1px solid var(--color-border-app);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all 0.2s ease;
+
+            &:hover {
+                border-color: var(--color-text-muted);
+                transform: translateX(2px);
+            }
+
+            .icon-box {
+                width: 40px;
+                height: 40px;
+                border-radius: var(--radius-md);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: var(--font-size-md);
+                flex-shrink: 0;
+
+                &.variant-primary {
+                    background-color: var(--color-primary-light);
+                    color: var(--color-primary-dark);
+                }
+
+                &.variant-blue {
+                    background-color: var(--color-blue-light);
+                    color: var(--color-blue-dark);
+                }
+
+                &.variant-warning {
+                    background-color: var(--color-warning-light);
+                    color: var(--color-warning-dark);
+                }
+            }
+
+            .item-info {
+                flex: 1;
+
+                strong {
+                    display: block;
+                    font-size: var(--font-size-sm);
+                    color: var(--color-text-main);
+                    margin-bottom: 2px;
+                }
+
+                p {
+                    font-size: var(--font-size-xs);
+                    color: var(--color-text-muted);
+                }
+            }
+
+            .arrow {
+                font-size: 20px;
+                color: var(--color-text-muted);
+            }
+        }
+    }
+}
