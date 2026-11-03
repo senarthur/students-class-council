@@ -16,12 +16,12 @@ export class Sidebar {
     {
       icon: 'icon fa-solid fa-border-all',
       label: 'Visão Geral',
-      path: '/overview'
+      path: '/inicio'
     },
     {
       icon: 'icon fa-solid fa-user',
       label: 'Aluno',
-      path: '/student'
+      path: '/estudantes'
     },
     {
       icon: 'icon fa-solid fa-building-columns',

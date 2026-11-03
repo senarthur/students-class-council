@@ -1,0 +1,88 @@
+<app-sidebar></app-sidebar>
+
+<section>
+    <!------------------------ HEADER ------------------------>
+    <header class="content-header">
+        <div>
+            <h1>Alunos</h1>
+            <p>Gerencie os estudantes e acesse seus dados cadastrais.</p>
+        </div>
+        <div class="action-buttons">
+            <app-button>
+                <i class="fa fa-solid fa-plus"></i>
+                Novo aluno
+            </app-button>
+            <app-button variant="outline">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                Importar CSV
+            </app-button>
+        </div>
+    </header>
+
+    <!------------------------ KPI CARDS ------------------------>
+    <app-base-card variant="dark" padding="0">
+        <div class="kpi-cards">
+            @for (kpiCard of kpiCards(); track $index) {
+            <app-kpi-card [data]="kpiCard"></app-kpi-card>
+            }
+        </div>
+    </app-base-card>
+
+    <!------------------------ TABELA DE ALUNOS ------------------------>
+    <app-base-card class="responsive-table">
+        <table class="students-table">
+            <thead>
+                <tr>
+                    <th class="col-checkbox"></th>
+                    <th>ALUNO</th>
+                    <th>TURMA</th>
+                    <th>TURNO</th>
+                    <th>PEI</th>
+                    <th>STATUS</th>
+                    <th class="col-actions"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (student of students(); track student.id) {
+                <tr [class.row-selected]="student.selected">
+                    <td class="col-checkbox">
+                        <input type="checkbox" />
+                    </td>
+                    <td class="col-student">
+                        <div class="avatar">{{ student.initials }}</div>
+                        <span class="student-name">{{ student.name }}</span>
+                    </td>
+                    <td>{{ student.grade }}</td>
+                    <td>{{ student.shift }}</td>
+                    <td>
+                        <span class="badge" [class.badge-pei]="student.hasPei" [class.badge-neutral]="!student.hasPei">
+                            {{ student.hasPei ? 'Sim' : 'Não' }}
+                        </span>
+                    </td>
+                    <td>
+                        <span class="badge badge-status" [class.badge-active]="student.status === 'Ativo'">
+                            {{ student.status }}
+                        </span>
+                    </td>
+                    <td class="col-actions">
+                        <button class="btn-view">Ver</button>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+        <footer class="table-footer">
+            <span class="pagination-info">Mostrando 1-5 de 842 estudantes</span>
+            <div class="pagination-controls">
+                <button class="page-nav" disabled>&lt;</button>
+                <button class="page-num active">1</button>
+                <button class="page-num">2</button>
+                <button class="page-num">3</button>
+                <span class="dots">...</span>
+                <button class="page-num">169</button>
+                <button class="page-nav">&gt;</button>
+            </div>
+        </footer>
+    </app-base-card>
+</section>

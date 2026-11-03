@@ -7,6 +7,10 @@ type variant = 'light' | 'dark';
   imports: [],
   templateUrl: './base-card.html',
   styleUrl: './base-card.scss',
+  host: {
+    '[style.padding]': 'padding()',
+    '[class]': 'variant()'
+  }
 })
 
 export class BaseCard {
