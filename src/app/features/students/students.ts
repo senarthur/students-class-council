@@ -6,6 +6,7 @@ import { BaseCard } from '../../shared/base-card/base-card';
 import { KpiCard } from '../../shared/kpi-card/kpi-card';
 import { RouterLink } from '@angular/router';
 import { Header } from '../../shared/header/header';
+import { Table } from '../../shared/table/table';
 
 @Component({
   selector: 'app-students',
@@ -15,6 +16,7 @@ import { Header } from '../../shared/header/header';
     Button,
     BaseCard,
     KpiCard,
+    Table,
     RouterLink
   ],
   templateUrl: './students.html',

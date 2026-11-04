@@ -15,107 +15,78 @@
     overflow-x: auto;
 }
 
-.students-table {
-    width: 100%;
-    border-collapse: collapse;
+.col-checkbox {
+    width: 40px;
+    text-align: center;
+}
 
-    th {
-        text-align: left;
-        font-size: var(--font-size-xs);
-        font-weight: 600;
-        color: var(--color-text-muted);
-        padding: var(--space-md) var(--space-sm);
-        letter-spacing: 0.5px;
-    }
+.col-student {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
 
-    td {
-        padding: var(--space-md) var(--space-sm);
-        border-top: 1px solid var(--color-bg-app);
-        font-size: var(--font-size-sm);
-        color: var(--color-text-main);
-        vertical-align: middle;
-    }
-
-    .col-checkbox {
-        width: 40px;
-        text-align: center;
-
-        input[type="checkbox"] {
-            accent-color: var(--color-primary-dark);
-            width: 16px;
-            height: 16px;
-            cursor: pointer;
-        }
-    }
-
-    .col-student {
+    .avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: var(--radius-full);
+        background-color: var(--color-blue-light);
+        color: var(--color-blue-dark);
         display: flex;
         align-items: center;
-        gap: var(--space-md);
-
-        .avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: var(--radius-full);
-            background-color: var(--color-blue-light);
-            color: var(--color-blue-dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: var(--font-size-xs);
-        }
-
-        .student-name {
-            font-weight: 600;
-            color: var(--color-text-main);
-        }
+        justify-content: center;
+        font-weight: 700;
+        font-size: var(--font-size-xs);
     }
 
-    /* Badges */
-    .badge {
-        display: inline-block;
-        padding: var(--space-sm) var(--space-md);
-        border-radius: var(--radius-full);
-        font-size: var(--font-size-xs);
-        font-weight: 600;
-
-        &.badge-pei {
-            background-color: var(--color-primary-light);
-            color: var(--color-primary-dark);
-        }
-
-        &.badge-neutral {
-            background-color: var(--color-bg-app);
-            color: var(--color-text-muted);
-        }
-
-        &.badge-active {
-            background-color: var(--color-primary-light);
-            color: var(--color-primary-dark);
-        }
-    }
-
-    .btn-view {
-        padding: var(--space-sm) var(--space-md);
-        border: 1px solid var(--color-border-app);
-        background-color: var(--color-white);
-        border-radius: var(--radius-md);
-        font-size: var(--font-size-xs);
+    .student-name {
         font-weight: 600;
         color: var(--color-text-main);
-        cursor: pointer;
-
-        &:hover {
-            background-color: var(--color-bg-app);
-        }
     }
-
-    .col-actions {
-        width: 70px;
-    }
-
 }
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+
+    &.badge-pei {
+        background-color: var(--color-primary-light);
+        color: var(--color-primary-dark);
+    }
+
+    &.badge-neutral {
+        background-color: var(--color-bg-app);
+        color: var(--color-text-muted);
+    }
+
+    &.badge-active {
+        background-color: var(--color-primary-light);
+        color: var(--color-primary-dark);
+    }
+}
+
+.btn-view {
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-border-app);
+    background-color: var(--color-white);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--color-text-main);
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--color-bg-app);
+    }
+}
+
+.col-actions {
+    width: 70px;
+}
+
 
 .table-footer {
     display: flex;

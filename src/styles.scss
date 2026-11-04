@@ -118,3 +118,10 @@ span,
 strong {
     cursor: default;
 }
+
+input[type="checkbox"] {
+    accent-color: var(--color-primary-dark);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}

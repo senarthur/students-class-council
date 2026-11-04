@@ -4,6 +4,7 @@ import { IKpiCard } from '../../shared/kpi-card/ikpi-card';
 import { KpiCard } from '../../shared/kpi-card/kpi-card';
 import { BaseCard } from '../../shared/base-card/base-card';
 import { Header } from '../../shared/header/header';
+import { Table } from '../../shared/table/table';
 
 @Component({
   selector: 'app-overview',
@@ -11,7 +12,8 @@ import { Header } from '../../shared/header/header';
     Sidebar,
     Header,
     KpiCard,
-    BaseCard
+    BaseCard,
+    Table
   ],
   templateUrl: './overview.html',
   styleUrl: './overview.scss',

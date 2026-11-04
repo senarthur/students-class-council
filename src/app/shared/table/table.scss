@@ -1,0 +1,66 @@
+:host {
+    display: block;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    font-size: var(--font-size-sm);
+    border-collapse: collapse;
+
+    ::ng-deep {
+        th {
+            text-transform: uppercase;
+            background-color: transparent;
+            text-align: left;
+            color: var(--color-text-muted);
+            padding: var(--space-sm);
+        }
+
+        td {
+            padding: var(--space-md) var(--space-sm);
+            font-size: var(--font-size-sm);
+            color: var(--color-text-main);
+            vertical-align: middle;
+        }
+    }
+
+    &.divider ::ng-deep {
+        th {
+            padding: var(--space-md);
+        }
+
+        td {
+            border-top: 1px solid var(--color-bg-app);
+        }
+    }
+
+    &.highlight-header ::ng-deep {
+        thead th {
+            background-color: var(--color-bg-app);
+        }
+
+        tbody {
+            padding: var(--space-md) var(--space-sm);
+        }
+    }
+}
+
+.data-table {
+    width: 100%;
+    font-size: var(--font-size-sm);
+    border-collapse: collapse;
+
+    thead th {
+        background-color: var(--color-bg-app);
+        text-align: left;
+        padding: var(--space-sm);
+        color: var(--color-text-muted);
+    }
+
+    tbody td {
+        padding: var(--space-md) var(--space-sm);
+
+
+    }
+}
