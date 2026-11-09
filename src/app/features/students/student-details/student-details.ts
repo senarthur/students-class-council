@@ -1,9 +1,12 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, input, OnInit, signal } from '@angular/core';
 import { Sidebar } from '../../../shared/sidebar/sidebar';
 import { BaseCard } from '../../../shared/base-card/base-card';
 import { Button } from '../../../shared/button/button';
 import { RouterLink } from '@angular/router';
 import { Header } from '../../../shared/header/header';
+import { StudentService } from '../../service/student-service';
+import { IStudent } from '../../service/iStudent';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-student-details',
@@ -12,22 +15,17 @@ import { Header } from '../../../shared/header/header';
     Header,
     BaseCard,
     Button,
-    RouterLink
+    RouterLink,
+    DatePipe
   ],
   templateUrl: './student-details.html',
   styleUrl: './student-details.scss',
 })
-export class StudentDetails {
+export class StudentDetails implements OnInit {
 
-  student = signal({
-    initials: 'LF',
-    name: 'Lucas Ferreira',
-    registration: '12/02/2021',
-    grade: '5° ano A',
-    shift: 'Manhã',
-    hasPei: false,
-    disorderInfo: 'Conforme cadastro'
-  })
+  private studentsService = inject(StudentService);
+
+  id = input<string | undefined>();
 
   trackingList = signal([
     {
@@ -52,4 +50,17 @@ export class StudentDetails {
       colorVariant: 'warning'
     }
   ])
+
+  student: IStudent | null = null;
+
+  ngOnInit() {
+    if (this.id()) {
+      const id = Number(this.id());
+      const targetStudent = this.studentsService.getStudentById(id);
+
+      if (targetStudent !== null) {
+        this.student = targetStudent;
+      }
+    }
+  }
 }

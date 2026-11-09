@@ -40,12 +40,12 @@
             </thead>
             <tbody>
                 @for (student of students(); track student.id) {
-                <tr [class.row-selected]="student.selected">
+                <tr>
                     <td class="col-checkbox">
                         <input type="checkbox" />
                     </td>
                     <td class="col-student">
-                        <div class="avatar">{{ student.initials }}</div>
+                        <img class="avatar" [src]=student.profileUrl>
                         <span class="student-name">{{ student.name }}</span>
                     </td>
                     <td>{{ student.grade }}</td>
@@ -61,7 +61,7 @@
                         </span>
                     </td>
                     <td class="col-actions">
-                        <button class="btn-view" routerLink="/estudantes/1">Ver</button>
+                        <button class="btn-view" routerLink="/estudantes/{{ student.id }}/detalhes">Ver</button>
                     </td>
                 </tr>
                 }

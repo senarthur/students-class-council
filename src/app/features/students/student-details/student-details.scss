@@ -121,6 +121,14 @@ header {
                 color: var(--color-text-main);
                 font-weight: 600;
             }
+
+            ul {
+                list-style: none;
+            }
+
+            .disorder {
+                font-weight: 400;
+            }
         }
     }
 }

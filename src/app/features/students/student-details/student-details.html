@@ -9,7 +9,7 @@
             <i class="fa fa-solid fa-arrow-left"></i>
             Voltar para alunos
         </app-button>
-        <app-button>
+        <app-button routerLink="../editar">
             Editar Aluno
         </app-button>
     </div>
@@ -17,14 +17,14 @@
     <!---------------- BARRA DO PERFIL ------------------>
     <app-base-card padding="28px" class="profile-card">
         <div class="profile-content">
-            <div class="avatar">{{ student().initials }}</div>
+            <img class="avatar" [src]="student?.profileUrl">
             <div class="profile-info">
-                <h2>{{ student().name }}</h2>
-                <span class="birthdate">Data de nascimento: {{ student().registration }}</span>
-
+                <h2>{{ student?.name }}</h2>
+                <span class="birthdate">Data de nascimento: {{ (student?.registration | date: 'dd/MM/yyyy') ??
+                    'Não informado' }}</span>
                 <div class="badges-row">
-                    <span class="badge badge-grade">{{ student().grade }}</span>
-                    <span class="badge badge-shift">{{ student().shift }}</span>
+                    <span class="badge badge-grade">{{ student?.grade }}</span>
+                    <span class="badge badge-shift">{{ student?.shift }}</span>
                 </div>
             </div>
         </div>
@@ -39,25 +39,37 @@
             <div class="info-grid">
                 <div class="info-item">
                     <span class="label">Turma</span>
-                    <strong class="value">{{ student().grade }}</strong>
+                    <strong class="value">{{ student?.grade }}</strong>
                 </div>
 
                 <div class="info-item">
                     <span class="label">Turno</span>
-                    <strong class="value">{{ student().shift }}</strong>
+                    <strong class="value">{{ student?.shift }}</strong>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">Transtorno</span>
+                    <strong class="value">{{ student?.disorderInfo?.hasDisorder? 'Sim' : 'Não' }}</strong>
                 </div>
 
                 <div class="info-item">
                     <span class="label">Participa do PEI</span>
-                    <strong class="value">{{ student().hasPei ? 'Sim' : 'Não' }}</strong>
+                    <strong class="value">{{ student?.hasPei ? 'Sim' : 'Não' }}</strong>
                 </div>
 
+                @if (student && student.disorderInfo) {
                 <div class="info-item">
-                    <span class="label">Transtorno informado</span>
-                    <strong class="value">{{ student().disorderInfo }}</strong>
+                    <span class="label">Transtorno indentificados</span>
+                    <ul>
+                        @for (disorder of student.disorderInfo.disorders; track $index) {
+                        <li class="value disorder">{{ disorder }}</li>
+                        }
+                    </ul>
                 </div>
+                }
             </div>
         </app-base-card>
+
 
         <!-- Coluna 2: Acompanhamento do Estudante -->
         <app-base-card padding="24px" class="tracking-card">

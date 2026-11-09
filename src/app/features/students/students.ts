@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Sidebar } from '../../shared/sidebar/sidebar';
 import { Button } from '../../shared/button/button';
 import { IKpiCard } from '../../shared/kpi-card/ikpi-card';
@@ -7,6 +7,7 @@ import { KpiCard } from '../../shared/kpi-card/kpi-card';
 import { RouterLink } from '@angular/router';
 import { Header } from '../../shared/header/header';
 import { Table } from '../../shared/table/table';
+import { StudentService } from '../service/student-service';
 
 @Component({
   selector: 'app-students',
@@ -23,6 +24,7 @@ import { Table } from '../../shared/table/table';
   styleUrl: './students.scss',
 })
 export class Students {
+  private studentsService = inject(StudentService);
 
   kpiCards = signal<IKpiCard[]>([
     {
@@ -42,56 +44,5 @@ export class Students {
     }
   ]);
 
-  students = signal([
-    {
-      id: 1,
-      initials: 'LF',
-      name: 'Lucas Ferreira',
-      grade: '5º ano A',
-      shift: 'Manhã',
-      hasPei: true,
-      status: 'Ativo',
-      selected: false
-    },
-    {
-      id: 1,
-      initials: 'MO',
-      name: 'Mariana Oliveira',
-      grade: '5º ano A',
-      shift: 'Manhã',
-      hasPei: false,
-      status: 'Ativo',
-      selected: false
-    },
-    {
-      id: 1,
-      initials: 'GS',
-      name: 'Gabriel Santos',
-      grade: '6º ano B',
-      shift: 'Tarde',
-      hasPei: false,
-      status: 'Ativo',
-      selected: false
-    },
-    {
-      id: 1,
-      initials: 'AC',
-      name: 'Ana Clara Souza',
-      grade: '6º ano B',
-      shift: 'Tarde',
-      hasPei: true,
-      status: 'Ativo',
-      selected: false
-    },
-    {
-      id: 1,
-      initials: 'PH',
-      name: 'Pedro Henrique Lima',
-      grade: '7º ano A',
-      shift: 'Tarde',
-      hasPei: false,
-      status: 'Ativo',
-      selected: false
-    },
-  ])
+  students = this.studentsService.students;
 }
