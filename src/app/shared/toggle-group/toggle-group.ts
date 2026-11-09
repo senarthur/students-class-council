@@ -17,7 +17,7 @@ export class ToggleGroup {
     { label: 'Sim', value: true },
     { label: 'Não', value: false }
   ]);
-  value = input<boolean | string>(false);
+  value = input<boolean | string | null | undefined>(false);
 
   valueChange = output<boolean | string>();
 

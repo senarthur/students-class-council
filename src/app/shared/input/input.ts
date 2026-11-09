@@ -10,7 +10,7 @@ export class Input {
   label = input<string>('');
   placeholder = input<string>('');
   type = input<'text' | 'number' | 'date'>('text');
-  value = input<string>('');
+  value = input<string | null | undefined>('');
   disabled = input<boolean>(false);
   required = input(false, {
     transform: booleanAttribute

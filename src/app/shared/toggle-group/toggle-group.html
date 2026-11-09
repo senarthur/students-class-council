@@ -4,9 +4,8 @@
     }
     <div class="toggle-buttons">
         @for (opt of options(); track opt.label) {
-        <button type="button" class="toggle-btn" [class.active]="value() === opt.value" (click)="onSelect(opt.value)">
-            {{ opt.label }}
-        </button>
+        <input type="button" class="toggle-btn" value="{{opt.label}}" [class.active]="value() === opt.value"
+            (click)="onSelect(opt.value)">
         }
     </div>
 </div>
