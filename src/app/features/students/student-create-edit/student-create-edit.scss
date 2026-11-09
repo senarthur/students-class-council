@@ -36,40 +36,6 @@ header {
         margin-bottom: var(--space-lg);
     }
 
-    /* Estilos Gerais de Input/Select */
-    .form-field {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-
-        label {
-            font-size: var(--font-size-xs);
-            color: var(--color-text-muted);
-        }
-
-        input,
-        select {
-            height: 42px;
-            padding: 0 12px;
-            border-radius: var(--radius-md);
-            border: 1px solid var(--color-border-app);
-            background-color: var(--color-white);
-            font-size: var(--font-size-sm);
-            color: var(--color-text-main);
-            outline: none;
-            transition: border-color 0.2s ease;
-
-            &:focus {
-                border-color: var(--color-primary-dark);
-            }
-
-            &::placeholder {
-                color: var(--color-text-muted);
-                opacity: 0.8;
-            }
-        }
-    }
-
     /* Section 1: Identificação */
     .identification-grid {
         display: flex;
@@ -88,6 +54,16 @@ header {
             cursor: pointer;
             flex-shrink: 0;
             border: 1px dashed var(--color-border-app);
+            position: relative;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: var(--radius-lg);
+            }
 
             .upload-icon {
                 font-size: 24px;

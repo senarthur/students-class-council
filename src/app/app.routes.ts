@@ -12,14 +12,23 @@ export const routes: Routes = [
     },
     {
         path: 'estudantes',
-        loadComponent: () => import('./features/students/students').then(m => m.Students)
-    },
-    {
-        path: 'estudantes/adicionar',
-        loadComponent: () => import('./features/students/student-create/student-create').then(m => m.StudentCreate)
-    },
-    {
-        path: 'estudantes/:id',
-        loadComponent: () => import('./features/students/student-details/student-details').then(m => m.StudentDetails)
+        children: [
+            {
+                path: '',
+                loadComponent: () => import('./features/students/students').then(m => m.Students)
+            },
+            {
+                path: 'adicionar',
+                loadComponent: () => import('./features/students/student-create-edit/student-create-edit').then(m => m.StudentCreateEdit)
+            },
+            {
+                path: ':id/editar',
+                loadComponent: () => import('./features/students/student-create-edit/student-create-edit').then(m => m.StudentCreateEdit)
+            },
+            {
+                path: ':id/detalhes',
+                loadComponent: () => import('./features/students/student-details/student-details').then(m => m.StudentDetails)
+            },
+        ]
     },
 ];
