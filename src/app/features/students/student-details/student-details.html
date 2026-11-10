@@ -57,7 +57,7 @@
                     <strong class="value">{{ student?.hasPei ? 'Sim' : 'Não' }}</strong>
                 </div>
 
-                @if (student && student.disorderInfo) {
+                @if ((student && student.disorderInfo) && student.disorderInfo.hasDisorder) {
                 <div class="info-item">
                     <span class="label">Transtorno indentificados</span>
                     <ul>

@@ -24,6 +24,16 @@
             outline: none;
             transition: border-color 0.2s ease;
 
+            &.secondary {
+                border: 0;
+                border-bottom: 1px solid transparent;
+                padding: var(--space-sm);
+
+                &:focus {
+                    border-color: var(--color-text-main);
+                }
+            }
+
             &:focus {
                 border-color: var(--color-text-main);
             }

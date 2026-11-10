@@ -15,6 +15,10 @@ export class Input {
   required = input(false, {
     transform: booleanAttribute
   });
+  variant = input(false, {
+    transform: booleanAttribute
+  })
+
 
   valueChange = output<string>();
 

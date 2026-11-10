@@ -19,6 +19,9 @@ export class Select {
   required = input(false, {
     transform: booleanAttribute
   });
+  variant = input(false, {
+    transform: booleanAttribute
+  });
 
   valueChange = output<any>();
 

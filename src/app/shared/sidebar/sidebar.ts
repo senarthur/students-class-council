@@ -26,7 +26,7 @@ export class Sidebar {
     {
       icon: 'icon fa-solid fa-building-columns',
       label: 'Conselho de Classe',
-      path: '/class-council'
+      path: '/conselho-classe'
     },
     {
       icon: 'icon fa-regular fa-newspaper',

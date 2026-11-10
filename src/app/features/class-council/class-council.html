@@ -1,0 +1,153 @@
+<app-sidebar></app-sidebar>
+
+<section>
+    <app-header title="Resultado Geral"
+        helpText="Consolidação das avaliações enviadas por cada disciplina"></app-header>
+
+    <app-base-card>
+        <div class="filter-options">
+            <app-select variant="true" name="classes" label="Turma" [options]="classesOptions"></app-select>
+            <app-select variant="true" name="trimester" label="Trimestre" [options]="trimestreOptions"></app-select>
+            <app-input variant="true" label="Buscar estudante" placeholder="Buscar por nome"></app-input>
+        </div>
+    </app-base-card>
+
+    <div class="kpi-cards-info">
+        @for (item of data; track $index) {
+        <app-kpi-card [data]="item"></app-kpi-card>
+        }
+    </div>
+
+    <app-base-card>
+        <div class="test-header">
+            <h2>Avaliações por estudante</h2>
+            <p class="test-subtitle">
+                S = Sim • AV = Às vezes • N = Não
+            </p>
+
+            <app-table>
+                <thead>
+                    <tr>
+                        <th>Estudante</th>
+                        <th>Organiza material</th>
+                        <th>Participa cooperativamente</th>
+                        <th>Tem interesse</th>
+                        <th>Conserva o material</th>
+                        <th>Cumpre regras</th>
+                        <th>Ouve e respeita</th>
+                        <th>Realiza as atividades</th>
+                        <th>Respeito ao próximo</th>
+                        <th>Emite opiniões</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lucas Ferreira</td>
+                        <td class="primary">S</td>
+                        <td class="warning">AV</td>
+                        <td class="primary">S</td>
+                        <td class="primary">S</td>
+                        <td class="primary">S</td>
+                        <td class="primary">S</td>
+                        <td class="warning">AV</td>
+                        <td class="primary">S</td>
+                        <td class="danger">N</td>
+                        <td>4,6</td>
+                    </tr>
+                    <tr>
+                        <td>Mariana Oliveira</td>
+                        <td class="primary">S</td>
+                        <td class="primary">S</td>
+                        <td class="primary">S</td>
+                        <td class="primary">S</td>
+                        <td class="primary">S</td>
+                        <td class="primary">S</td>
+                        <td class="primary">S</td>
+                        <td class="primary">S</td>
+                        <td class="primary">S</td>
+                        <td>5,0</td>
+                    </tr>
+                    <tr>
+                        <td>Gabriel Santos</td>
+                        <td class="warning">AV</td>
+                        <td class="danger">N</td>
+                        <td class="warning">AV</td>
+                        <td class="primary">S</td>
+                        <td class="warning">AV</td>
+                        <td class="danger">N</td>
+                        <td class="warning">AV</td>
+                        <td class="warning">AV</td>
+                        <td class="danger">N</td>
+                        <td>2,9</td>
+                    </tr>
+                    <tr>
+                        <td>Ana Clara Souza</td>
+                        <td class="primary">S</td>
+                        <td class="warning">AV</td>
+                        <td class="primary">S</td>
+                        <td class="primary">S</td>
+                        <td class="primary">S</td>
+                        <td class="primary">S</td>
+                        <td class="primary">S</td>
+                        <td class="primary">S</td>
+                        <td class="primary">S</td>
+                        <td>4,9</td>
+                    </tr>
+                    <tr>
+                        <td>Pedro Henrique Lima</td>
+                        <td class="primary">S</td>
+                        <td class="warning">AV</td>
+                        <td class="primary">S</td>
+                        <td class="primary">S</td>
+                        <td class="primary">S</td>
+                        <td class="primary">S</td>
+                        <td class="primary">AV</td>
+                        <td class="primary">S</td>
+                        <td class="danger">N</td>
+                        <td>4,6</td>
+                    </tr>
+                </tbody>
+            </app-table>
+        </div>
+    </app-base-card>
+
+    <app-base-card>
+        <h2>Envio das avaliações por disciplina</h2>
+
+        <div class="material-pendencies">
+            <div class="material-pendecy">
+                <h4>Português</h4>
+                <span class="primary">Recebida</span>
+            </div>
+            <div class="material-pendecy">
+                <h4>Matemática</h4>
+                <span class="primary">Recebida</span>
+            </div>
+            <div class="material-pendecy">
+                <h4>Inglês</h4>
+                <span class="primary">Recebida</span>
+            </div>
+            <div class="material-pendecy">
+                <h4>História</h4>
+                <span class="primary">Recebida</span>
+            </div>
+            <div class="material-pendecy">
+                <h4>Geografia</h4>
+                <span class="primary">Recebida</span>
+            </div>
+            <div class="material-pendecy">
+                <h4>Arte</h4>
+                <span class="primary">Recebida</span>
+            </div>
+            <div class="material-pendecy">
+                <h4>Ciências</h4>
+                <span class="warning">Pendente</span>
+            </div>
+            <div class="material-pendecy">
+                <h4>Ed. Física</h4>
+                <span class="warning">Pendente</span>
+            </div>
+        </div>
+    </app-base-card>
+</section>

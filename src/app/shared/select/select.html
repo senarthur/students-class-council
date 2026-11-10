@@ -4,7 +4,8 @@
         {{ label() }} @if (required()) { <span class="required">*</span> }
     </label>
     }
-    <select [name]="name()" [value]="value()" [disabled]="disabled()" (change)="onChange($event)">
+    <select [class.secondary]="variant()" [name]="name()" [value]="value()" [disabled]="disabled()"
+        (change)="onChange($event)">
         @if (placeholder()) {
         <option value="" disabled [selected]="!value()">{{ placeholder() }}</option>
         }

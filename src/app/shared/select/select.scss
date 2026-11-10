@@ -30,6 +30,16 @@
             appearance: none;
             position: relative;
 
+            &.secondary {
+                border: none;
+                border-bottom: 1px solid transparent;
+                padding: var(--space-sm);
+
+                &:focus {
+                    border-color: var(--color-primary-main);
+                }
+            }
+
             &:focus {
                 border-color: var(--color-primary-dark);
             }
