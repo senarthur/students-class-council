@@ -18,6 +18,9 @@ export class Button {
   disabled = input<boolean>(false, {
     transform: booleanAttribute
   });
+  selected = input<boolean>(false, {
+    transform: booleanAttribute
+  });
 
   btnClick = output<Event>();
 

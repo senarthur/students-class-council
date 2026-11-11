@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { booleanAttribute, Component, input } from '@angular/core';
 
 type variant = 'light' | 'dark';
 
@@ -9,6 +9,7 @@ type variant = 'light' | 'dark';
   styleUrl: './base-card.scss',
   host: {
     '[style.padding]': 'padding()',
+    '[style.flex-direction]': 'direction()',
     '[class]': 'variant()'
   }
 })
@@ -16,4 +17,5 @@ type variant = 'light' | 'dark';
 export class BaseCard {
   padding = input<string>('16px');
   variant = input<variant>('light');
+  direction = input<'row' | 'column'>('column')
 }
