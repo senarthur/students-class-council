@@ -144,31 +144,8 @@ p {
     }
 }
 
-.progress-bar {
-    width: 60%;
-    height: 6px;
-    background: var(--color-bg-app);
-    border-radius: 3px;
-    display: inline-block;
-    margin-left: 8px;
-    overflow: hidden;
-
-    .fill {
-        height: 100%;
-        border-radius: 3px;
-
-        &.blue {
-            background: var(--color-blue-dark);
-        }
-
-        &.primary {
-            background: var(--color-primary-dark);
-        }
-
-        &.warning {
-            background: var(--color-warning-dark);
-        }
-    }
+td {
+    padding-right: var(--space-lg) !important;
 }
 
 /* -------------- PENDÊNCIAS -------------- */

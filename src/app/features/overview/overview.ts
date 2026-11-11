@@ -1,10 +1,14 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { Sidebar } from '../../shared/sidebar/sidebar';
 import { IKpiCard } from '../../shared/kpi-card/ikpi-card';
 import { KpiCard } from '../../shared/kpi-card/kpi-card';
 import { BaseCard } from '../../shared/base-card/base-card';
 import { Header } from '../../shared/header/header';
 import { Table } from '../../shared/table/table';
+import { ProgressBar } from '../../shared/progress-bar/progress-bar';
+import { Color } from '../../shared/progress-bar/color.model';
+import { Firestore } from '@angular/fire/firestore';
+import { Auth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-overview',
@@ -13,7 +17,8 @@ import { Table } from '../../shared/table/table';
     Header,
     KpiCard,
     BaseCard,
-    Table
+    Table,
+    ProgressBar,
   ],
   templateUrl: './overview.html',
   styleUrl: './overview.scss',
@@ -50,4 +55,6 @@ export class Overview {
       variant: 'warning'
     },
   ])
+
+  color = Color;
 }

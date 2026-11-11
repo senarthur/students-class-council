@@ -99,9 +99,7 @@
                         <td><strong>5°A</strong></td>
                         <td>
                             18 de 28
-                            <div class="progress-bar">
-                                <div class="fill blue" style="width: 78%"></div>
-                            </div>
+                            <app-progress-bar [width]="78" [color]="color.BLUE_DARK"></app-progress-bar>
                         </td>
                         <td><span class="status-badge blue">Em andamento</span></td>
                     </tr>
@@ -109,9 +107,7 @@
                         <td><strong>5°B</strong></td>
                         <td>
                             0 de 28
-                            <div class="progress-bar">
-                                <div class="fill warning" style="width: 0%"></div>
-                            </div>
+                            <app-progress-bar [width]="0"></app-progress-bar>
                         </td>
                         <td><span class="status-badge blue">Pendente</span></td>
                     </tr>
@@ -119,9 +115,7 @@
                         <td><strong>5°C</strong></td>
                         <td>
                             28 de 28
-                            <div class="progress-bar">
-                                <div class="fill primary" style="width: 100%"></div>
-                            </div>
+                            <app-progress-bar [width]="100"></app-progress-bar>
                         </td>
                         <td><span class="status-badge blue">Concluído</span></td>
                     </tr>
