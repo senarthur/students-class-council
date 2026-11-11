@@ -1,0 +1,159 @@
+/* --------------- HEADER ----------------------- */
+
+.profile-section {
+    display: flex;
+    gap: calc(var(--space-3xl) * 10);
+}
+
+.personal-student-info {
+    display: flex;
+    gap: var(--space-xl);
+
+    img {
+        width: 150px;
+        border-radius: var(--radius-md);
+    }
+
+    .personal-data {
+        margin-top: var(--space-lg);
+
+        h4 {
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--space-sm);
+        }
+    }
+}
+
+.metadata {
+    margin-top: var(--space-lg);
+}
+
+/* --------------- SUBJECT BUTTONS ----------------------- */
+
+.subject-btns {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-lg);
+
+    app-button {
+        flex: 1;
+    }
+}
+
+/* --------------- EVALUATION TABLE ----------------------- */
+.evaluation-section {
+    display: flex;
+    gap: var(--space-md);
+    border-bottom: 1px solid var(--color-border-app);
+    padding-bottom: var(--space-2xl);
+
+    h2 {
+        margin-bottom: var(--space-sm);
+    }
+
+    span {
+        font-size: var(--font-size-xs);
+        margin-bottom: var(--space-md);
+    }
+
+    app-table {
+        flex: 1;
+
+        tbody tr:nth-child(odd) {
+            background-color: var(--color-bg-app);
+        }
+
+        th {
+            text-transform: none;
+            color: var(--color-text-main);
+            font-weight: 500;
+        }
+
+        td {
+            font-size: var(--font-size-xs);
+        }
+
+        input {
+            width: 60px;
+            padding: var(--space-sm);
+            text-align: center;
+            text-transform: uppercase;
+            outline: none;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--color-border-app);
+
+            &:focus {
+                border-color: var(--color-bg-app);
+            }
+        }
+    }
+
+    aside {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-lg);
+
+        h4 {
+            margin-bottom: var(--space-lg);
+        }
+
+        .caption {
+            min-width: 300px;
+
+            .caption-item {
+                display: flex;
+                gap: var(--space-md);
+                margin-bottom: var(--space-md);
+
+                .caption-tag {
+                    padding: var(--space-sm) var(--space-xl);
+                    border-radius: var(--radius-full);
+                    text-align: center;
+                    font-size: var(--font-size-sm);
+                    width: 80px;
+                    height: calc(var(--font-size-sm) * 2.2);
+                }
+
+                .primary {
+                    background-color: var(--color-primary-light);
+                    color: var(--color-primary-dark);
+                }
+
+                .warning {
+                    background-color: var(--color-warning-light);
+                    color: var(--color-warning-dark);
+                }
+
+                .danger {
+                    background-color: var(--color-danger-light);
+                    color: var(--color-danger-dark);
+                }
+            }
+        }
+
+
+        .progress-review {
+            span {
+                display: block;
+                margin-bottom: 0;
+            }
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--space-md);
+        }
+    }
+
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    app-button {
+        width: 300px;
+    }
+}

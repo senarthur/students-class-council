@@ -1,0 +1,153 @@
+<app-sidebar></app-sidebar>
+
+<section>
+    <app-header title="Avaliação por disciplina"
+        helpText="Cada professor registra os critérios da sua disciplina. As avaliações alimentam o Resultado Geral."></app-header>
+
+    <app-base-card>
+        <div class="profile-section">
+            <div class="personal-student-info">
+                <img [src]="students.profileUrl" alt="student-photo">
+                <div class="personal-data">
+                    <h4>{{ students.name }}</h4>
+                    <span>5º ano A • Manhã • PEI</span>
+                </div>
+            </div>
+            <div class="metadata">
+                <p>Professor responsável: <span>Português</span></p>
+                <span>2° trimestre de 2026</span>
+            </div>
+        </div>
+    </app-base-card>
+
+    <app-base-card>
+        <div class="subject-btns">
+            <app-button [selected]="true" variant="outline">Português</app-button>
+            <app-button variant="outline">Matemática</app-button>
+            <app-button variant="outline">Inglês</app-button>
+            <app-button variant="outline">História</app-button>
+            <app-button variant="outline">Geografia</app-button>
+            <app-button variant="outline">Arte</app-button>
+            <app-button variant="outline">Ciências</app-button>
+            <app-button variant="outline">Educação Física</app-button>
+        </div>
+    </app-base-card>
+
+    <div class="evaluation-section">
+        <app-base-card>
+            <h2>Critérios de acompanhamento</h2>
+            <span>Escolha S, AV ou N para cada item avaliado.</span>
+            <app-table>
+                <tbody>
+                    <tr>
+                        <th scope="row">Organização do material</th>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Participa cooperativamente</th>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Tem interesse</th>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Conserva o material</th>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Cumpre regras</th>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Ouve e respeita</th>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Realiza as atividades</th>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Respeito ao próximo</th>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Emite opiniões</th>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                </tbody>
+            </app-table>
+        </app-base-card>
+        <aside>
+            <app-base-card>
+                <h4>Legenda da avaliação</h4>
+                <div class="caption">
+                    <div class="caption-item">
+                        <span class="caption-tag primary">S</span>
+                        <div class="caption-text">
+                            <p>Sim</p>
+                            <span>Comportamento consistente</span>
+                        </div>
+                    </div>
+                    <div class="caption-item">
+                        <span class="caption-tag warning">AV</span>
+                        <div class="caption-text">
+                            <p>Às vezes</p>
+                            <span>Comportamento irregular</span>
+                        </div>
+                    </div>
+                    <div class="caption-item">
+                        <span class="caption-tag danger">N</span>
+                        <div class="caption-text">
+                            <p>Não</p>
+                            <span>Comportamento não apresentado</span>
+                        </div>
+                    </div>
+                </div>
+            </app-base-card>
+            <app-base-card>
+                <h4>Revisão da turma</h4>
+                <div class="progress-review">
+                    <span>Estudante 12 de 28</span>
+                    <app-progress-bar [width]="50"></app-progress-bar>
+                </div>
+                <div class="progress-footer">
+                    <h4>Lucas Ferreira</h4>
+                    <div class="action-buttons">
+                        <app-button variant="outline">
+                            <i class="fa fa-solid fa-arrow-left"></i>
+                            Anterior
+                        </app-button>
+                        <app-button>
+                            Próximo
+                            <i class="fa fa-solid fa-arrow-right"></i>
+                        </app-button>
+                    </div>
+                    <span>Os critérios são salvos automaticamente ao pular para o próximo estudante.</span>
+                </div>
+            </app-base-card>
+        </aside>
+    </div>
+    <footer>
+        <span>Após o envio, a avaliação fica disponível para consolidação pela coordenação.</span>
+        <app-button>Salvar</app-button>
+    </footer>
+</section>

@@ -7,6 +7,7 @@ import { Select } from '../../shared/select/select';
 import { KpiCard } from '../../shared/kpi-card/kpi-card';
 import { IKpiCard } from '../../shared/kpi-card/ikpi-card';
 import { Table } from '../../shared/table/table';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-class-council',
@@ -17,7 +18,8 @@ import { Table } from '../../shared/table/table';
     Select,
     Input,
     KpiCard,
-    Table
+    Table,
+    RouterLink
   ],
   templateUrl: './class-council.html',
   styleUrl: './class-council.scss',

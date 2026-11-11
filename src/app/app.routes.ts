@@ -33,6 +33,15 @@ export const routes: Routes = [
     },
     {
         path: 'conselho-classe',
-        loadComponent: () => import('./features/class-council/class-council').then(m => m.ClassCouncil)
-    }
+        children: [
+            {
+                path: '',
+                loadComponent: () => import('./features/class-council/class-council').then(m => m.ClassCouncil)
+            },
+            {
+                path: 'avaliar/:id',
+                loadComponent: () => import('./features/class-council/class-council-evaluation/class-council-evaluation').then(m => m.ClassCouncilEvaluation)
+            }
+        ]
+    },
 ];
