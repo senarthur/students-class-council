@@ -1,0 +1,16 @@
+export enum Color {
+    PRIMARY_DARK = "#17563F",
+    PRIMARY_LIGHT = "#E3F1E9",
+    BLUE_DARK = "#2E5CA8",
+    BLUE_LIGHT = "#E4EEFB",
+    PURPLE_DARK = "#664F9E",
+    PURPLE_LIGHT = "#EDE8F7",
+    WARNING_DARK = "#A16617",
+    WARNING_LIGHT = "#FBF2DD",
+    DANGER_DARK = "#B03636",
+    DANGER_LIGHT = "#FDE9E9",
+    BG_APP = "#F6F8FA",
+    BORDER_APP = "#DDE4E7",
+    WHITE = "#FFFFFF",
+
+}
