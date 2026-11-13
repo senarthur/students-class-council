@@ -1,0 +1,21 @@
+<footer class="table-footer">
+    <span class="pagination-info">
+        Mostrando {{ startIndex() }}-{{ endIndex() }} de {{ totalItems() }} {{ itemLabel() }}
+    </span>
+
+    <div class="pagination-controls">
+        <button class="page-nav" [disabled]="currentPage() === 1" (click)="prevPage()">&lt;</button>
+
+        @for (page of visiblePages(); track $index) {
+        @if (page === '...') {
+        <span class="dots">...</span>
+        } @else {
+        <button class="page-num" [class.active]="page === currentPage()" (click)="goToPage(page)">
+            {{ page }}
+        </button>
+        }
+        }
+
+        <button class="page-nav" [disabled]="currentPage() === totalPages()" (click)="nextPage()">&gt;</button>
+    </div>
+</footer>
