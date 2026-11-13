@@ -125,3 +125,40 @@ input[type="checkbox"] {
     height: 16px;
     cursor: pointer;
 }
+
+input.invalid-concept {
+    border-color: var(--color-danger-dark);
+    animation: shake 0.25s ease-in-out;
+}
+
+input.concept-s {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
+}
+
+input.concept-av {
+    background-color: var(--color-warning-light);
+    color: var(--color-warning-dark);
+}
+
+input.concept-n {
+    background-color: var(--color-danger-light);
+    color: var(--color-danger-dark);
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-3px);
+    }
+
+    75% {
+        transform: translateX(3px);
+    }
+
+}
