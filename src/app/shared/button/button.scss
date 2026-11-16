@@ -60,6 +60,19 @@
         }
     }
 
+    &.btn-primary-light .custom-btn {
+        background-color: transparent;
+        color: var(--color-text-muted);
+        border: none;
+        justify-content: left;
+
+        &[selected="true"],
+        &:hover:not(:disabled) {
+            background-color: var(--color-primary-light);
+            color: var(--color-primary-dark);
+        }
+    }
+
     &.btn-white .custom-btn {
         background-color: var(--color-white);
         color: var(--color-text-main);

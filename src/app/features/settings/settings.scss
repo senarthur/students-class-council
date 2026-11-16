@@ -1,0 +1,57 @@
+.action-btns {
+    display: flex;
+    gap: var(--space-md);
+
+    app-button {
+        flex: 1;
+    }
+}
+
+.main-config {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+
+    .card-config-header {
+        margin-bottom: var(--space-lg);
+
+        h2 {
+            font-size: var(--font-size-xl);
+        }
+    }
+
+    .card-group-item {
+        margin: var(--space-lg) 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--space-lg);
+
+        .highlight-primary {
+            color: var(--color-primary-dark);
+            font-weight: 600;
+        }
+    }
+
+    span {
+        margin-bottom: var(--space-lg);
+    }
+}
+
+h3 {
+    margin-bottom: -5px;
+}
+
+.opt-item {
+    margin-top: var(--space-lg);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+}
+
+.action-btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--space-lg);
+}

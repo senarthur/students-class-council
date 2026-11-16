@@ -40,7 +40,7 @@ export class Sidebar {
     {
       icon: 'icon fa-solid fa-gear',
       label: 'Configurações',
-      path: '/settings'
+      path: '/configuracao'
     },
   ]
 

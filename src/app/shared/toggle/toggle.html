@@ -1,0 +1,13 @@
+<div class="toggle-wrapper" [class.disabled]="disabled()" (click)="toggle()">
+    @if (label()) {
+    <div class="toggle-header">
+        <p class="toggle-label">{{ label() }}</p>
+        <span class="toggle-helpText">{{ helpText() ? helpText() : '' }}</span>
+    </div>
+    }
+
+    <button type="button" role="switch" class="toggle-track" [class.active]="checked()" [attr.aria-checked]="checked()"
+        [disabled]="disabled()">
+        <span class="toggle-thumb"></span>
+    </button>
+</div>

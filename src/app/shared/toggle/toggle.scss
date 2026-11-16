@@ -1,0 +1,68 @@
+:host {
+    display: block;
+    width: 100%;
+}
+
+.toggle-wrapper {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+
+    &.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+.toggle-track {
+    position: relative;
+    width: 2.75rem;
+    height: 1.5rem;
+    padding: 0;
+    border: none;
+    border-radius: 999px;
+    background-color: var(--color-bg-app);
+    cursor: inherit;
+    transition: background-color 0.25s ease;
+
+    &:focus-visible {
+        outline: 2px solid var(--color-primary-dark);
+        outline-offset: 2px;
+    }
+
+    &.active {
+        background-color: var(--color-primary-dark);
+
+        .toggle-thumb {
+            transform: translateX(1.25rem);
+        }
+    }
+}
+
+.toggle-thumb {
+    position: absolute;
+    top: 0.1875rem; // 3px
+    left: 0.1875rem; // 3px
+    width: 1.125rem; // 18px
+    height: 1.125rem; // 18px
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toggle-label {
+    font-size: var(--font-size-md);
+    color: var(--color-text-main);
+    display: block;
+    font-weight: 400;
+}
+
+.toggle-helpText {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    display: block;
+}

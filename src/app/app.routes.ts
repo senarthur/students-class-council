@@ -44,4 +44,8 @@ export const routes: Routes = [
             }
         ]
     },
+    {
+        path: 'configuracao',
+        loadComponent: () => import('./features/settings/settings').then(m => m.Settings)
+    }
 ];
