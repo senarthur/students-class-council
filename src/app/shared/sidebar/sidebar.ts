@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal, ViewChild } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { SidebarService } from './sidebar-service';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,6 +12,9 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './sidebar.scss',
 })
 export class Sidebar {
+  protected sidebarService = inject(SidebarService);
+
+  isSidebarCollapsed = this.sidebarService.isSidebarCollapsed;
 
   navItems = [
     {
@@ -39,4 +43,8 @@ export class Sidebar {
       path: '/settings'
     },
   ]
+
+  toggle() {
+    this.sidebarService.toggleSidebar();
+  }
 }

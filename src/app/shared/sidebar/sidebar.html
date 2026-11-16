@@ -1,17 +1,23 @@
-<aside class="sidebar">
+<aside class="sidebar" [class.collapsed]="isSidebarCollapsed()">
     <div class="sidebar-header">
-        <div class="logo-avatar">G</div>
+        <div (click)="toggle()" class="logo-avatar">G</div>
+        @if (!isSidebarCollapsed()) {
         <span class="brand-name">Gracy Gestão</span>
+        }
     </div>
 
     <nav class="sidebar-nav">
+        @if (!isSidebarCollapsed()) {
         <span class="nav-section-title">Gestão de Estudantes</span>
+        }
 
         <ul>
             @for (navItem of navItems; track $index) {
             <li class="nav-item" routerLinkActive="active" routerLink="{{ navItem.path }}">
                 <i class="icon {{navItem.icon}}"></i>
+                @if (!isSidebarCollapsed()) {
                 <span>{{navItem.label}}</span>
+                }
             </li>
             }
         </ul>
@@ -19,9 +25,11 @@
 
     <div class="sidebar-footer">
         <div class="user-avatar">AS</div>
+        @if (!isSidebarCollapsed()) {
         <div class="user-info">
             <span class="user-name">Arthur Sena</span>
             <span class="user-role">Administrador</span>
         </div>
+        }
     </div>
 </aside>

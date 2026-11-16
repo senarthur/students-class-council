@@ -79,6 +79,11 @@ section {
     gap: var(--space-2xl);
 }
 
+body.sidebar-collapsed section {
+    margin-left: var(--sidebar-width-collapsed);
+    width: calc(100dvw - var(--sidebar-width-collapsed));
+}
+
 h1 {
     font-size: var(--font-size-3xl);
 }
@@ -127,22 +132,25 @@ input[type="checkbox"] {
 }
 
 input.invalid-concept {
-    border-color: var(--color-danger-dark);
+    border-color: var(--color-danger-dark) !important;
     animation: shake 0.25s ease-in-out;
 }
 
 input.concept-s {
     background-color: var(--color-primary-light);
+    border-color: var(--color-primary-light) !important;
     color: var(--color-primary-dark);
 }
 
 input.concept-av {
     background-color: var(--color-warning-light);
+    border-color: var(--color-warning-light) !important;
     color: var(--color-warning-dark);
 }
 
 input.concept-n {
     background-color: var(--color-danger-light);
+    border-color: var(--color-danger-light) !important;
     color: var(--color-danger-dark);
 }
 
