@@ -7,29 +7,32 @@ import { Header } from '../../shared/header/header';
 import { Table } from '../../shared/table/table';
 import { ProgressBar } from '../../shared/progress-bar/progress-bar';
 import { Color } from '../../shared/progress-bar/color.model';
-import { Firestore } from '@angular/fire/firestore';
-import { Auth } from '@angular/fire/auth';
+import { StudentService } from '../service/student-service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-overview',
   imports: [
-    Sidebar,
     Header,
     KpiCard,
     BaseCard,
     Table,
     ProgressBar,
+    RouterLink
   ],
   templateUrl: './overview.html',
   styleUrl: './overview.scss',
 })
 export class Overview {
+  private studentService = inject(StudentService);
+
+  students = this.studentService.students;
 
   kpiCards = signal<IKpiCard[]>([
     {
       icon: 'fa-solid fa-users',
       label: 'Alunos cadastrados',
-      value: '420',
+      value: this.students().length.toString(),
       subtext: '+12 neste mês',
       variant: 'primary'
     },

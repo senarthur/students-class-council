@@ -1,8 +1,7 @@
 import { Component, inject, input, OnInit, signal } from '@angular/core';
-import { Sidebar } from '../../../shared/sidebar/sidebar';
 import { BaseCard } from '../../../shared/base-card/base-card';
 import { Button } from '../../../shared/button/button';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Header } from '../../../shared/header/header';
 import { StudentService } from '../../service/student-service';
 import { IStudent } from '../../service/iStudent';
@@ -11,7 +10,6 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-student-details',
   imports: [
-    Sidebar,
     Header,
     BaseCard,
     Button,
@@ -24,6 +22,7 @@ import { DatePipe } from '@angular/common';
 export class StudentDetails implements OnInit {
 
   private studentsService = inject(StudentService);
+  private router = inject(Router);
 
   id = input<string | undefined>();
 
@@ -51,16 +50,18 @@ export class StudentDetails implements OnInit {
     }
   ])
 
-  student: IStudent | null = null;
+  student = signal<IStudent | null>(null);
 
   ngOnInit() {
-    if (this.id()) {
-      const id = Number(this.id());
-      const targetStudent = this.studentsService.getStudentById(id);
-
-      if (targetStudent !== null) {
-        this.student = targetStudent;
+    const id = this.id();
+    if (id) {
+      const student = this.studentsService.getStudentById(id);
+      if (student == undefined) {
+        this.router.navigate(['/students']);
+      } else {
+        this.student.set(student);
       }
+
     }
   }
 }

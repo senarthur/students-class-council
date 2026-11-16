@@ -29,7 +29,7 @@ export class Button {
   }
 
   onClick(event: Event): void {
-    if (!this.disabled) {
+    if (!this.disabled()) {
       this.btnClick.emit(event);
     }
   }

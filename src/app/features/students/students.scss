@@ -11,6 +11,10 @@
 }
 
 /* ------------------------ TABELA DE ALUNOS ------------------------ */
+.loading-row td {
+    text-align: center;
+}
+
 .responsive-table {
     overflow-x: auto;
 }

@@ -1,12 +1,11 @@
-<app-sidebar></app-sidebar>
-
 <section>
     <app-header title="Resultado Geral"
         helpText="Consolidação das avaliações enviadas por cada disciplina"></app-header>
 
     <app-base-card>
         <div class="filter-options">
-            <app-select variant="true" name="classes" label="Turma" [options]="classesOptions"></app-select>
+            <app-select variant="true" name="classes" label="Turma" [options]="classesOptions()"
+                [value]="classesOptions()[0]"></app-select>
             <app-select variant="true" name="trimester" label="Trimestre" [options]="trimestreOptions"></app-select>
             <app-input variant="true" label="Buscar estudante" placeholder="Buscar por nome"></app-input>
         </div>
@@ -42,71 +41,39 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr routerLink="avaliar/1">
-                        <td>Lucas Ferreira</td>
-                        <td class="primary">S</td>
-                        <td class="warning">AV</td>
-                        <td class="primary">S</td>
-                        <td class="primary">S</td>
-                        <td class="primary">S</td>
-                        <td class="primary">S</td>
-                        <td class="warning">AV</td>
-                        <td class="primary">S</td>
-                        <td class="danger">N</td>
-                        <td>4,6</td>
+                    @for (student of studentsFilter(); track $index) {
+                    <tr routerLink="avaliar/{{ student.id }}">
+                        <td>{{ student.fullName }}</td>
+                        <td
+                            [class]="student.classCouncil[0].grade == 'S' ? 'primary' : student.classCouncil[0].grade == 'AV' ? 'warning' : 'danger'">
+                            {{ student.classCouncil[0].grade }}</td>
+                        <td
+                            [class]="student.classCouncil[1].grade == 'S' ? 'primary' : student.classCouncil[1].grade == 'AV' ? 'warning' : 'danger'">
+                            {{ student.classCouncil[1].grade }}</td>
+                        <td
+                            [class]="student.classCouncil[2].grade == 'S' ? 'primary' : student.classCouncil[2].grade == 'AV' ? 'warning' : 'danger'">
+                            {{ student.classCouncil[2].grade }}</td>
+                        <td
+                            [class]="student.classCouncil[3].grade == 'S' ? 'primary' : student.classCouncil[3].grade == 'AV' ? 'warning' : 'danger'">
+                            {{ student.classCouncil[3].grade }}</td>
+                        <td
+                            [class]="student.classCouncil[4].grade == 'S' ? 'primary' : student.classCouncil[4].grade == 'AV' ? 'warning' : 'danger'">
+                            {{ student.classCouncil[4].grade }}</td>
+                        <td
+                            [class]="student.classCouncil[5].grade == 'S' ? 'primary' : student.classCouncil[5].grade == 'AV' ? 'warning' : 'danger'">
+                            {{ student.classCouncil[5].grade }}</td>
+                        <td
+                            [class]="student.classCouncil[6].grade == 'S' ? 'primary' : student.classCouncil[6].grade == 'AV' ? 'warning' : 'danger'">
+                            {{ student.classCouncil[6].grade }}</td>
+                        <td
+                            [class]="student.classCouncil[7].grade == 'S' ? 'primary' : student.classCouncil[7].grade == 'AV' ? 'warning' : 'danger'">
+                            {{ student.classCouncil[7].grade }}</td>
+                        <td
+                            [class]="student.classCouncil[8].grade == 'S' ? 'primary' : student.classCouncil[8].grade == 'AV' ? 'warning' : 'danger'">
+                            {{ student.classCouncil[8].grade }}</td>
+                        <td>{{ student.resultClassCouncil.toFixed(1) }}</td>
                     </tr>
-                    <tr>
-                        <td>Mariana Oliveira</td>
-                        <td class="primary">S</td>
-                        <td class="primary">S</td>
-                        <td class="primary">S</td>
-                        <td class="primary">S</td>
-                        <td class="primary">S</td>
-                        <td class="primary">S</td>
-                        <td class="primary">S</td>
-                        <td class="primary">S</td>
-                        <td class="primary">S</td>
-                        <td>5,0</td>
-                    </tr>
-                    <tr>
-                        <td>Gabriel Santos</td>
-                        <td class="warning">AV</td>
-                        <td class="danger">N</td>
-                        <td class="warning">AV</td>
-                        <td class="primary">S</td>
-                        <td class="warning">AV</td>
-                        <td class="danger">N</td>
-                        <td class="warning">AV</td>
-                        <td class="warning">AV</td>
-                        <td class="danger">N</td>
-                        <td>2,9</td>
-                    </tr>
-                    <tr>
-                        <td>Ana Clara Souza</td>
-                        <td class="primary">S</td>
-                        <td class="warning">AV</td>
-                        <td class="primary">S</td>
-                        <td class="primary">S</td>
-                        <td class="primary">S</td>
-                        <td class="primary">S</td>
-                        <td class="primary">S</td>
-                        <td class="primary">S</td>
-                        <td class="primary">S</td>
-                        <td>4,9</td>
-                    </tr>
-                    <tr>
-                        <td>Pedro Henrique Lima</td>
-                        <td class="primary">S</td>
-                        <td class="warning">AV</td>
-                        <td class="primary">S</td>
-                        <td class="primary">S</td>
-                        <td class="primary">S</td>
-                        <td class="primary">S</td>
-                        <td class="primary">AV</td>
-                        <td class="primary">S</td>
-                        <td class="danger">N</td>
-                        <td>4,6</td>
-                    </tr>
+                    }
                 </tbody>
             </app-table>
         </div>

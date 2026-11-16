@@ -1,5 +1,3 @@
-<app-sidebar></app-sidebar>
-
 <section>
     <app-header [title]="title()" [helpText]="helpText()" />
 
@@ -21,17 +19,17 @@
 
             <div class="identification-grid">
                 <label class="photo-upload-box">
-                    @if (student) {
-                    <img class="photo-preview" [src]="student.profileUrl" alt="Foto de {{ student.name }}">
+                    @if (student()) {
+                    <img class="photo-preview" [src]="student()?.profileUrl" alt="Foto de {{student()?.fullName}}">
                     }
                     <span class="upload-icon">+</span>
                     <span>Adicionar foto</span>
                     <input type="file" name="image-upload" id="image-upload" accept="image/*">
                 </label>
                 <app-input label="Nome completo" placeholder="Nome completo do estudante" required="true"
-                    [value]="student?.name" />
+                    [value]="student()?.fullName" />
                 <app-input label="Data de nascimento" placeholder="DD/MM/AAAA"
-                    [value]="student?.registration?.toDateString()" />
+                    [value]="student()?.birthDate | date: 'dd/MM/yyyy'" />
             </div>
 
             <hr class="fieldset-divider">
@@ -43,11 +41,11 @@
 
             <div class="school-grid">
                 <app-select name="turma" placeholder="Selecione uma turma" label="Turma" required="true"
-                    [options]="classes()" [value]="student?.grade"></app-select>
+                    [options]="classes()" [value]="student()?.fullClass?.fullDescription"></app-select>
                 <app-select name="turno" placeholder="Selecione o turno" label="Turno" required="true"
-                    [options]="shift()" [value]="student?.shift"></app-select>
+                    [options]="shift()" [value]="student()?.fullClass?.shift"></app-select>
                 <app-select name="situacao" placeholder="Situação" label="Situação" required="true" [options]="status()"
-                    [value]="student?.status"></app-select>
+                    [value]="student()?.active"></app-select>
             </div>
 
             <hr class="fieldset-divider">
@@ -58,9 +56,9 @@
             </fieldset>
 
             <div class="additional-info">
-                <app-toggle-group label="Participa do PEI" [value]="student?.hasPei"></app-toggle-group>
+                <app-toggle-group label="Participa do PEI" [value]="student()?.hasPEI"></app-toggle-group>
                 <app-toggle-group label="Há transtorno ou condição relevante para o acompanhamento?"
-                    [value]="student?.disorderInfo?.hasDisorder"></app-toggle-group>
+                    [value]="student()?.disorderStatus === 'NONE' ? false : true"></app-toggle-group>
             </div>
 
             <div class="action-buttons">

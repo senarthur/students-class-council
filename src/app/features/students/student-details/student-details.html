@@ -1,5 +1,3 @@
-<app-sidebar></app-sidebar>
-
 <section>
     <app-header title="Detalhes do aluno"
         helpText="Consulte os dados essenciais e acesse os acompanhamentos do estudante." />
@@ -17,14 +15,14 @@
     <!---------------- BARRA DO PERFIL ------------------>
     <app-base-card padding="28px" class="profile-card">
         <div class="profile-content">
-            <img class="avatar" [src]="student?.profileUrl">
+            <img class="avatar" [src]="student()?.profileUrl">
             <div class="profile-info">
-                <h2>{{ student?.name }}</h2>
-                <span class="birthdate">Data de nascimento: {{ (student?.registration | date: 'dd/MM/yyyy') ??
+                <h2>{{student()?.fullName}}</h2>
+                <span class="birthdate">Data de nascimento: {{ (student()?.birthDate | date: 'dd/MM/yyyy') ??
                     'Não informado' }}</span>
                 <div class="badges-row">
-                    <span class="badge badge-grade">{{ student?.grade }}</span>
-                    <span class="badge badge-shift">{{ student?.shift }}</span>
+                    <span class="badge badge-grade">{{ student()?.fullClass?.fullDescription }}</span>
+                    <span class="badge badge-shift">{{ student()?.fullClass?.shift }}</span>
                 </div>
             </div>
         </div>
@@ -39,29 +37,29 @@
             <div class="info-grid">
                 <div class="info-item">
                     <span class="label">Turma</span>
-                    <strong class="value">{{ student?.grade }}</strong>
+                    <strong class="value">{{ student()?.fullClass?.fullDescription }}</strong>
                 </div>
 
                 <div class="info-item">
                     <span class="label">Turno</span>
-                    <strong class="value">{{ student?.shift }}</strong>
+                    <strong class="value">{{ student()?.fullClass?.shift }}</strong>
                 </div>
 
                 <div class="info-item">
                     <span class="label">Transtorno</span>
-                    <strong class="value">{{ student?.disorderInfo?.hasDisorder? 'Sim' : 'Não' }}</strong>
+                    <strong class="value">{{ student()?.disorderStatus === "CONFIRMED" ? 'Sim' : 'Não' }}</strong>
                 </div>
 
                 <div class="info-item">
                     <span class="label">Participa do PEI</span>
-                    <strong class="value">{{ student?.hasPei ? 'Sim' : 'Não' }}</strong>
+                    <strong class="value">{{ student()?.hasPEI ? 'Sim' : 'Não' }}</strong>
                 </div>
 
-                @if ((student && student.disorderInfo) && student.disorderInfo.hasDisorder) {
+                @if ((student() && student()?.disorderStatus === "CONFIRMED")) {
                 <div class="info-item">
                     <span class="label">Transtorno indentificados</span>
                     <ul>
-                        @for (disorder of student.disorderInfo.disorders; track $index) {
+                        @for (disorder of student()?.disorders; track $index) {
                         <li class="value disorder">{{ disorder }}</li>
                         }
                     </ul>

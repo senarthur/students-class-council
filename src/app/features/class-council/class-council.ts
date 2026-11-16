@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { Header } from '../../shared/header/header';
-import { Sidebar } from '../../shared/sidebar/sidebar';
 import { BaseCard } from '../../shared/base-card/base-card';
 import { Input } from '../../shared/input/input';
 import { Select } from '../../shared/select/select';
@@ -8,11 +7,13 @@ import { KpiCard } from '../../shared/kpi-card/kpi-card';
 import { IKpiCard } from '../../shared/kpi-card/ikpi-card';
 import { Table } from '../../shared/table/table';
 import { RouterLink } from '@angular/router';
+import { StudentService } from '../service/student-service';
+import { IClass, IClassCouncilValue, IStudent } from '../service/iStudent';
+import { SelectOption } from '../../shared/select/select-option.model';
 
 @Component({
   selector: 'app-class-council',
   imports: [
-    Sidebar,
     BaseCard,
     Header,
     Select,
@@ -24,34 +25,15 @@ import { RouterLink } from '@angular/router';
   templateUrl: './class-council.html',
   styleUrl: './class-council.scss',
 })
-export class ClassCouncil {
+export class ClassCouncil implements OnInit {
+  private readonly studentsService = inject(StudentService);
 
-  classesOptions = [
-    {
-      label: '1° ano A',
-      value: '1A'
-    },
-    {
-      label: '1° ano B',
-      value: '1B'
-    },
-    {
-      label: '1° ano C',
-      value: '1C'
-    },
-    {
-      label: '2° ano A',
-      value: '2A'
-    },
-    {
-      label: '2° ano B',
-      value: '2B'
-    },
-    {
-      label: '2° ano C',
-      value: '2C'
-    },
-  ]
+  classesOptions = signal<SelectOption[]>([]);
+  students = signal<IStudent[]>([]);
+
+  studentsFilter = computed(() => {
+    return this.students().filter(student => student);
+  })
 
   trimestreOptions = [
     {
@@ -94,4 +76,22 @@ export class ClassCouncil {
       value: '28'
     },
   ]
+
+  ngOnInit() {
+    this.classesOptions.set(this.iClassToSelectOption(this.studentsService.classes()));
+    this.students.set(this.studentsService.students());
+  }
+
+  private iClassToSelectOption(iclasses: IClass[]): SelectOption[] {
+    const classOption: SelectOption[] = [];
+
+    iclasses.forEach(iclass => {
+      classOption.push({
+        label: iclass.fullDescription,
+        value: iclass.id
+      })
+    });
+
+    return classOption;
+  }
 }

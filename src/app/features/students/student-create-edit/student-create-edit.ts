@@ -1,27 +1,27 @@
 import { Component, computed, inject, input, OnInit, signal } from '@angular/core';
-import { Sidebar } from '../../../shared/sidebar/sidebar';
 import { Button } from '../../../shared/button/button';
 import { BaseCard } from '../../../shared/base-card/base-card';
 import { Input } from '../../../shared/input/input';
 import { Select } from '../../../shared/select/select';
 import { SelectOption } from '../../../shared/select/select-option.model';
 import { ToggleGroup } from '../../../shared/toggle-group/toggle-group';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { Header } from '../../../shared/header/header';
 import { StudentService } from '../../service/student-service';
-import { IStudent } from '../../service/iStudent';
+import { IClass, IStudent } from '../../service/iStudent';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-student-create',
   imports: [
-    Sidebar,
     Header,
     Button,
     BaseCard,
     Input,
     Select,
     ToggleGroup,
-    RouterLink
+    RouterLink,
+    DatePipe
   ],
   templateUrl: './student-create-edit.html',
   styleUrl: './student-create-edit.scss',
@@ -29,7 +29,6 @@ import { IStudent } from '../../service/iStudent';
 export class StudentCreateEdit implements OnInit {
 
   private studentsService = inject(StudentService);
-  private router = inject(Router);
 
   id = input<string | undefined>();
   isEdit = computed(() => !!this.id());
@@ -42,31 +41,20 @@ export class StudentCreateEdit implements OnInit {
     return this.isEdit() ? 'Atualize os dados cadastrais do estudante.' : 'Consulte os dados essenciais e acesse os acompanhamentos do estudante.';
   })
 
-  student: IStudent | null = null;
+  student = signal<IStudent | null>(null);
 
   ngOnInit() {
-    if (this.id()) {
-      const id = Number(this.id());
-      const targetStudent = this.studentsService.getStudentById(id);
-
-      if (targetStudent !== null) {
-        this.student = targetStudent;
-      } else {
-        this.router.navigate(['/estudantes']);
-      }
+    const id = this.id();
+    if (id) {
+      const student = this.studentsService.getStudentById(id);
+      if (student == undefined)
+        this.student.set(null);
+      else
+        this.student.set(student);
     }
   }
 
-  classes = signal<SelectOption[]>([
-    {
-      value: '1A',
-      label: '1° Ano A',
-    },
-    {
-      value: '1B',
-      label: '1° Ano B',
-    }
-  ])
+  classes = signal<SelectOption[]>(this.iClassToSelectOption(this.studentsService.classes()));
 
   shift = signal<SelectOption[]>([
     {
@@ -104,4 +92,17 @@ export class StudentCreateEdit implements OnInit {
       label: 'Transtorno Opositor Desafiador',
     },
   ])
+
+  private iClassToSelectOption(iclasses: IClass[]): SelectOption[] {
+    const classOption: SelectOption[] = [];
+
+    iclasses.forEach(iclass => {
+      classOption.push({
+        label: iclass.fullDescription,
+        value: iclass.id
+      })
+    });
+
+    return classOption;
+  }
 }

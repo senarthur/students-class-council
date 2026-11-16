@@ -1,4 +1,4 @@
-import { booleanAttribute, Component, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 type variant = 'light' | 'dark';
 

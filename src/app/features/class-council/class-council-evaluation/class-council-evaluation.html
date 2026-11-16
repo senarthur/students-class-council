@@ -1,16 +1,22 @@
-<app-sidebar></app-sidebar>
-
 <section>
     <app-header title="Avaliação por disciplina"
         helpText="Cada professor registra os critérios da sua disciplina. As avaliações alimentam o Resultado Geral."></app-header>
 
+    <div class="action-bar">
+        <app-button variant="white" routerLink="/conselho-classe">
+            <i class="fa fa-solid fa-arrow-left"></i>
+            Voltar para Conselho de classe
+        </app-button>
+    </div>
+
     <app-base-card>
         <div class="profile-section">
             <div class="personal-student-info">
-                <img [src]="students.profileUrl" alt="student-photo">
+                <img [src]="student()?.profileUrl" alt="student-photo">
                 <div class="personal-data">
-                    <h4>{{ students.name }}</h4>
-                    <span>5º ano A • Manhã • PEI</span>
+                    <h4>{{ student()?.fullName }}</h4>
+                    <span>{{ student()?.fullClass?.fullDescription }} • {{ student()?.fullClass?.shift }} • {{
+                        student()?.hasPEI ? "PEI" : '' }}</span>
                 </div>
             </div>
             <div class="metadata">
@@ -22,14 +28,10 @@
 
     <app-base-card>
         <div class="subject-btns">
-            <app-button [selected]="true" variant="outline">Português</app-button>
-            <app-button variant="outline">Matemática</app-button>
-            <app-button variant="outline">Inglês</app-button>
-            <app-button variant="outline">História</app-button>
-            <app-button variant="outline">Geografia</app-button>
-            <app-button variant="outline">Arte</app-button>
-            <app-button variant="outline">Ciências</app-button>
-            <app-button variant="outline">Educação Física</app-button>
+            @for (subject of subjects(); track subject.id) {
+            <app-button [selected]="subject.id === selectedSubject()?.id" (btnClick)="selectSubject(subject)"
+                variant="outline">{{ subject.subjectName }}</app-button>
+            }
         </div>
     </app-base-card>
 
@@ -39,60 +41,14 @@
             <span>Escolha S, AV ou N para cada item avaliado.</span>
             <app-table>
                 <tbody>
+                    @for (behavior of behaviors(); track behavior.id) {
                     <tr>
-                        <th scope="row">Organização do material</th>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
+                        <th scope="row">{{ behavior.label }}</th>
+                        <td><input type="text"
+                                [value]="student()?.classCouncil?.find(cl => cl.id === behavior?.id)?.grade"
+                                appInputDirective></td>
                     </tr>
-                    <tr>
-                        <th scope="row">Participa cooperativamente</th>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Tem interesse</th>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Conserva o material</th>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Cumpre regras</th>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Ouve e respeita</th>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Realiza as atividades</th>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Respeito ao próximo</th>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Emite opiniões</th>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                    </tr>
+                    }
                 </tbody>
             </app-table>
         </app-base-card>
@@ -130,13 +86,13 @@
                     <app-progress-bar [width]="50"></app-progress-bar>
                 </div>
                 <div class="progress-footer">
-                    <h4>Lucas Ferreira</h4>
+                    <h4>{{ student()?.fullName?.split(" ")?.[0] + " " + student()?.fullName?.split(" ")?.[1] }}</h4>
                     <div class="action-buttons">
-                        <app-button variant="outline">
+                        <app-button (btnClick)="goToPreviousStudent()" variant="outline">
                             <i class="fa fa-solid fa-arrow-left"></i>
                             Anterior
                         </app-button>
-                        <app-button>
+                        <app-button (btnClick)="goToNextStudent()">
                             Próximo
                             <i class="fa fa-solid fa-arrow-right"></i>
                         </app-button>

@@ -17,15 +17,26 @@ app-table {
     margin-top: var(--space-2xl);
 }
 
-td,
 th {
     font-size: var(--font-size-xs);
     text-align: center !important;
     text-transform: none !important;
 }
 
+tbody tr td:not(:first-child) {
+    text-align: center;
+}
+
 tbody tr:nth-child(odd) {
     background-color: var(--color-bg-app);
+}
+
+tbody tr {
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--color-primary-light);
+    }
 }
 
 tbody td {
